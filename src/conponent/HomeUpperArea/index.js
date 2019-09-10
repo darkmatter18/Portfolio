@@ -70,7 +70,7 @@ class HomeUpperArea extends React.Component {
                 <Grid container justify="center" style={{ zIndex: 2, color: '#ffffff', margin: '0' }}>
                     <Grid item lg={12}>
                         <Typography align="center">
-                            <HomeSocialButton iName="fas fa-chevron-down" />
+                            <HomeSocialButton iName="fas fa-chevron-down" link="#about"/>
                         </Typography>
                     </Grid>
                 </Grid>

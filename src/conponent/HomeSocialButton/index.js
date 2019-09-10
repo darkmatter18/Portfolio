@@ -18,7 +18,12 @@ class HomeSocialButton extends React.Component {
 
         if(link) {
             console.log('Opening Link:  '+ link);
-            window.open(link);
+            if(link.startsWith('#')){
+                window.location = link
+            }
+            if(link.startsWith('http')){
+                window.open(link);
+            }
         }
         else {
             console.log('NO LINK PRESENT');
