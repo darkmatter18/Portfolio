@@ -1,4 +1,5 @@
 import React from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 import HomeUpperArea from '../../conponent/HomeUpperArea';
 import HomeAboutArea from '../../conponent/HomeAboutArea';
@@ -7,8 +8,10 @@ class Home extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <HomeUpperArea />
-                <HomeAboutArea />
+                <ParallaxProvider>
+                    <HomeUpperArea />
+                    <HomeAboutArea />
+                </ParallaxProvider>
             </React.Fragment >
         );
     }

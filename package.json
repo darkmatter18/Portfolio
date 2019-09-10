@@ -9,7 +9,8 @@
     "react-dom": "^16.8.6",
     "react-particles-js": "^2.7.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-scroll-parallax": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
