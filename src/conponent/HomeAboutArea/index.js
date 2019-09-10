@@ -10,12 +10,12 @@ class HomeAboutArea extends React.Component {
                 <div id="#about"></div>
                 <Grid container justify="center" style={{ paddingTop: '8rem' }}>
                     <Grid item lg={12}>
-                        <Typography align="center" variant="h5" style={{ fontFamily: 'poppins-bold, sans-serif', color: '#00ad45' }}>
+                        <Typography align="center" variant="h4" style={{ fontFamily: 'poppins-bold, sans-serif', color: '#00ad45' }}>
                             About
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid container justify="center" spacing={3} style={{ paddingTop: '2rem' }}>
+                <Grid container justify="center" spacing={3} style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
                     <Grid item  >
                         <img src={logo} alt="logo" style={{ maxHeight: '10rem' }} />
                     </Grid>
@@ -27,7 +27,7 @@ class HomeAboutArea extends React.Component {
                     </Grid>
                 </Grid>
 
-                <Grid container justify="center" spacing={10} >
+                <Grid container justify="center" spacing={10} style={{paddingBottom: '4rem'}}>
                     <Grid item >
                         <Typography align="left" variant="h5">
                             Personal Info
@@ -75,11 +75,10 @@ class HomeAboutArea extends React.Component {
                                 </Typography>
                             </a>
                         </div>
-
                     </Grid>
-                    <Grid item lg={2}>
 
-                    </Grid>
+                    <Grid item lg={2}> </Grid>
+
                     <Grid item >
                         <Typography align="center" variant="h5">
                             Skills
@@ -101,9 +100,8 @@ class HomeAboutArea extends React.Component {
                             Ubuntu, Linux, Google Cloud Platform (GCP), Git, Github
                         </Typography>
                     </Grid>
-
-
                 </Grid>
+
             </React.Fragment>
         )
     }
