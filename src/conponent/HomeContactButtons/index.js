@@ -5,17 +5,17 @@ import ArrowDownwardRounded from '@material-ui/icons/ArrowDownwardRounded';
 class HomeContactButtons extends React.Component {
     render() {
         return (
-            <Grid container spacing={5} justify="center" style={{ paddingBottom: '4rem' }}>
+            <Grid container spacing={5} justify="center" style={{ paddingBottom: '3rem' }}>
                 <Grid item>
                     <Button>
                         Get in Touch
-                        </Button>
+                    </Button>
                 </Grid>
                 <Grid item>
-                    <Button>
+                    <Button >
                         <ArrowDownwardRounded />
                         Resume
-                        </Button>
+                    </Button>
                 </Grid>
             </Grid>
         )
