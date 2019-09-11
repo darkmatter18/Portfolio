@@ -3,18 +3,26 @@ import { TextField, Button, Typography } from '@material-ui/core';
 import axios from 'axios';
 
 class HomeModalForm extends React.Component {
-
-    state = { name: '', email: '', number: '', textmsg: '', submitting: false, submitted: false, buttonBackgroundColor: '#00ad45' }
+    state = {
+        name: '',
+        email: '',
+        number: '',
+        textmsg: '',
+        submitting: false,
+        submitted: false,
+        submitFailed: false,
+        buttonBackgroundColor: '#00ad45'
+    }
 
     handleChange = name => e => {
         e.preventDefault();
-        this.setState({ ...this.state, [name]: e.target.value })
+        this.setState({ ...this.state, [name]: e.target.value });
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({ submitting: true, buttonBackgroundColor: '#dbdbdb' })
-        this.submitRequest()
+        this.setState({ submitting: true, buttonBackgroundColor: '#dbdbdb' });
+        this.submitRequest();
     }
 
     submitRequest = async () => {
@@ -23,14 +31,15 @@ class HomeModalForm extends React.Component {
             git_email: this.state.email,
             git_mob: this.state.number,
             git_msg: this.state.textmsg
-        });
-
-        if (response.status === 200) {
-            if (response.data.status === 'Y') {
-                this.setState({ submitted: true })
+        }).then(() => {
+            if (response.status === 200) {
+                if (response.data.status === 'Y') {
+                    this.setState({ submitted: true })
+                }
             }
-        }
-        
+        }).catch((e) => {
+            this.setState({ submitting: false, buttonBackgroundColor: '#00ad45', submitFailed: true })
+        })
     }
 
     renderForm() {
@@ -79,6 +88,11 @@ class HomeModalForm extends React.Component {
                     value={textmsg}
                     onChange={this.handleChange('textmsg')}
                 />
+                {this.state.submitFailed ? (
+                    <Typography align="left" variant="body2" style={{ color: '#ff0000', float: 'left' }}>
+                        Can't Submit
+                    </Typography>
+                ) : (<React.Fragment />)}
 
                 <Button
                     type="submit"
