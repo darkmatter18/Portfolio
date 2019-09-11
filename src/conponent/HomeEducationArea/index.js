@@ -4,7 +4,6 @@ import Whatshot from '@material-ui/icons/Whatshot';
 import School from '@material-ui/icons/School';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { Parallax } from 'react-scroll-parallax';
 
 // import wallpaper from './wallpaper.png';
 
@@ -73,7 +72,7 @@ class HomeEducationArea extends React.Component {
                                 iconStyle={{ background: '#00ad45', color: '#fff' }}
                                 icon={<Whatshot fontSize="large" />}
                             />
-                            
+
                         </VerticalTimeline>
                     </Grid>
                 </Grid>
