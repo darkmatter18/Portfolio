@@ -1,9 +1,8 @@
 import React from 'react';
-import { Grid, Typography, Button } from '@material-ui/core';
-import ArrowDownwardRounded from '@material-ui/icons/ArrowDownwardRounded';
-
+import { Grid, Typography, } from '@material-ui/core';
 
 import logo from './logo.jpeg';
+import HomeContactButtons from '../HomeContactButtons';
 
 class HomeAboutArea extends React.Component {
     render() {
@@ -104,21 +103,7 @@ class HomeAboutArea extends React.Component {
                     </Grid>
                 </Grid>
 
-                <Grid container spacing={5} justify="center" style={{paddingBottom: '4rem'}}>
-                    <Grid item>
-                        <Button>
-                            Get in Touch
-                        </Button>
-                    </Grid>
-
-                    <Grid item>
-                        <Button>
-                            <ArrowDownwardRounded />
-                            Resume
-                        </Button>
-                    </Grid>
-                </Grid>
-
+                <HomeContactButtons />
             </React.Fragment>
         )
     }
