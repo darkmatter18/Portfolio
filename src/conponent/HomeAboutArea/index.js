@@ -28,7 +28,7 @@ class HomeAboutArea extends React.Component {
                     </Grid>
                 </Grid>
 
-                <Grid container justify="center" spacing={10} style={{paddingBottom: '2rem'}}>
+                <Grid container justify="center" spacing={10} style={{ paddingBottom: '2rem' }}>
                     <Grid item >
                         <Typography align="left" variant="h5">
                             Personal Info

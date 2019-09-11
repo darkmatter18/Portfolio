@@ -26,12 +26,12 @@ class HomeModalForm extends React.Component {
     }
 
     submitRequest = async () => {
-        const response = await axios.post('http://www.google.com', {
+        await axios.post('http://localhost:80/darkmatte_main/', {
             git_name: this.state.name,
             git_email: this.state.email,
             git_mob: this.state.number,
             git_msg: this.state.textmsg
-        }).then(() => {
+        }).then((response) => {
             if (response.status === 200) {
                 if (response.data.status === 'Y') {
                     this.setState({ submitted: true })
@@ -39,7 +39,7 @@ class HomeModalForm extends React.Component {
             }
         }).catch((e) => {
             this.setState({ submitting: false, buttonBackgroundColor: '#00ad45', submitFailed: true })
-        })
+        });
     }
 
     renderForm() {
@@ -90,7 +90,7 @@ class HomeModalForm extends React.Component {
                 />
                 {this.state.submitFailed ? (
                     <Typography align="left" variant="body2" style={{ color: '#ff0000', float: 'left' }}>
-                        Can't Submit
+                        No backend server added :(
                     </Typography>
                 ) : (<React.Fragment />)}
 
