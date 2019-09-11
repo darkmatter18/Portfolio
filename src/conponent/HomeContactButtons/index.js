@@ -8,7 +8,6 @@ class HomeContactButtons extends React.Component {
 
     onGitButtonClick = (e) => {
         e.preventDefault();
-        console.log('Modal Open')
         this.setState({ open: true })
     }
 
@@ -57,20 +56,19 @@ class HomeContactButtons extends React.Component {
                 >
 
                     <Fade in={open}>
-                        <div>
-                            <Card style={{ maxWidth: '24rem' }}>
-                                <CardContent>
-                                    <Typography variant="h5" align="left" id="transition-modal-title">
-                                        Form
+                        <Card style={{ maxWidth: '24rem' }}>
+                            <CardContent>
+                                <Typography variant="h5" align="left" id="transition-modal-title">
+                                    Form
                                     </Typography>
-                                    <Typography variant="body2" align="left" id="transition-modal-description">
-                                        Fill the form and I will contact you as soon as possible
+                                <Typography variant="body2" align="left" id="transition-modal-description">
+                                    Fill the form and I will contact you as soon as possible
                                     </Typography>
 
-                                    <HomeModalForm />
-                                </CardContent>
-                            </Card>
-                        </div>
+                                <HomeModalForm />
+
+                            </CardContent>
+                        </Card>
                     </Fade>
                 </Modal>
             </React.Fragment>

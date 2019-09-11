@@ -1,21 +1,41 @@
 import React from 'react';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button, Typography } from '@material-ui/core';
+import axios from 'axios';
 
 class HomeModalForm extends React.Component {
 
-    state ={name: '', email: '', number: '', textmsg: ''}
+    state = { name: '', email: '', number: '', textmsg: '', submitted: false }
 
     handleChange = name => e => {
         e.preventDefault();
-        this.setState({...this.state ,[name]: e.target.value})
+        this.setState({ ...this.state, [name]: e.target.value })
     }
 
-    render() {
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.submitRequest()
+    }
 
-        const {name, email, number, textmsg} = this.state
+    submitRequest = async () => {
+            const response = await axios.post('http://www.google.com', {
+                git_name: this.state.name,
+                git_email: this.state.email,
+                git_mob: this.state.number,
+                git_msg: this.state.textmsg
+            });
+        
+        if (response.status === 200) {
+            if (response.data.status === 'Y') {
+                this.setState({submitted: true})
+            }
+        }
 
+    }
+
+    renderForm() {
+        const { name, email, number, textmsg } = this.state
         return (
-            <form style={{ paddingTop: '1rem', paddingBottom: '2rem' }}>
+            <form style={{ paddingTop: '1rem', paddingBottom: '2rem' }} onSubmit={this.handleSubmit}>
                 <TextField
                     required
                     fullWidth
@@ -24,7 +44,7 @@ class HomeModalForm extends React.Component {
                     margin="normal"
                     name="git-name"
                     value={name}
-                    onChange = {this.handleChange('name')}
+                    onChange={this.handleChange('name')}
                 />
                 <TextField
                     required
@@ -35,7 +55,7 @@ class HomeModalForm extends React.Component {
                     margin="dense"
                     name="git-email"
                     value={email}
-                    onChange = {this.handleChange('email')}
+                    onChange={this.handleChange('email')}
                 />
                 <TextField
                     type="number"
@@ -44,7 +64,7 @@ class HomeModalForm extends React.Component {
                     margin="dense"
                     name="git-mob"
                     value={number}
-                    onChange = {this.handleChange('number')}
+                    onChange={this.handleChange('number')}
                 />
                 <TextField
                     fullWidth
@@ -56,16 +76,37 @@ class HomeModalForm extends React.Component {
                     margin="normal"
                     variant="outlined"
                     value={textmsg}
-                    onChange = {this.handleChange('textmsg')}
+                    onChange={this.handleChange('textmsg')}
                 />
 
                 <Button
                     type="submit"
-                    style={{backgroundColor: '#00ad45', color: '#ffffff', float: 'right'}}
+                    style={{ backgroundColor: '#00ad45', color: '#ffffff', float: 'right' }}
                 >
                     Submit
                 </Button>
             </form>
+        )
+    }
+
+    renderSubmitted() {
+        return (
+            <Typography variant="body2" align="left" style={{padding: '1rem'}}>
+                Your Request is sumbmitted. <br />
+                I'll reply you as soon as possible
+            </Typography>
+        )
+    }
+
+    render() {
+        return (
+            <React.Fragment>
+                {this.state.submitted ? (
+                    this.renderSubmitted()
+                ) : (
+                        this.renderForm()
+                    )}
+            </React.Fragment>
         )
     }
 }
