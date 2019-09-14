@@ -1,7 +1,8 @@
 import React from 'react';
-import { Grid, Button, Modal, Fade, Backdrop, Card, CardContent, Typography } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import ArrowDownwardRounded from '@material-ui/icons/ArrowDownwardRounded';
-import HomeModalForm from '../HomeModalForm';
+
+import HomeContactModal from '../HomeContactModal';
 
 class HomeContactButtons extends React.Component {
     state = { open: false }
@@ -41,36 +42,7 @@ class HomeContactButtons extends React.Component {
                     </Grid>
                 </Grid>
 
-                <Modal
-                    aria-labelledby="transition-modal-title"
-                    aria-describedby="transition-modal-description"
-                    open={open}
-                    onClose={this.OnModalClose}
-                    closeAfterTransition
-                    BackdropComponent={Backdrop}
-                    BackdropProps={{
-                        timeout: 500,
-                    }}
-
-                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                >
-
-                    <Fade in={open}>
-                        <Card style={{ maxWidth: '24rem' }}>
-                            <CardContent>
-                                <Typography variant="h5" align="left" id="transition-modal-title">
-                                    Form
-                                    </Typography>
-                                <Typography variant="body2" align="left" id="transition-modal-description">
-                                    Fill the form and I will contact you as soon as possible
-                                    </Typography>
-
-                                <HomeModalForm />
-
-                            </CardContent>
-                        </Card>
-                    </Fade>
-                </Modal>
+                <HomeContactModal open={open} close={this.OnModalClose} />
             </React.Fragment>
         )
     }

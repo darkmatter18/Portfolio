@@ -22,15 +22,21 @@ class HomeModalForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.setState({ submitting: true, buttonBackgroundColor: '#dbdbdb' });
-        this.submitRequest();
+
+        window.grecaptcha.ready(() => {
+            window.grecaptcha.execute('6LcGQncUAAAAAKYAaNg7ciOYFBEGMuaTQWbA8cEl', { action: 'login' }).then((token) => {
+                this.submitRequest(token);
+            });
+        });
     }
 
-    submitRequest = async () => {
+    submitRequest = async (token) => {
         await axios.post('http://localhost:80/darkmatte_main/', {
             git_name: this.state.name,
             git_email: this.state.email,
             git_mob: this.state.number,
-            git_msg: this.state.textmsg
+            git_msg: this.state.textmsg,
+            g_recap: token
         }).then((response) => {
             if (response.status === 200) {
                 if (response.data.status === 'Y') {
