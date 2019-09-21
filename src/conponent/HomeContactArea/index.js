@@ -3,6 +3,8 @@ import { Grid, Typography, Container, Button } from '@material-ui/core';
 import HomeContactModal from '../HomeContactModal';
 import VersionInfo from '../VersionInfo';
 
+import { EMAIL_ID } from './../../utils/config';
+
 class HomeContactArea extends React.Component {
 
     state = { modalOpen: false }
@@ -64,8 +66,10 @@ class HomeContactArea extends React.Component {
                                 <Typography variant="h5" align="center" style={{ marginTop: '6px', marginBottom: '12px' }}>
                                     E-Mail me at
                                 </Typography>
+
                                 <Typography variant="subtitle2" align="center" style={{ opacity: 0.6 }}>
-                                    in2arkadipb13@gmail.com <br />
+                                    {EMAIL_ID}
+                                    <br />
                                 </Typography>
                             </Grid>
                             <Grid item lg={4}>

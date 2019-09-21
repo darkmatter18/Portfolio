@@ -5,6 +5,7 @@ import { Parallax } from 'react-scroll-parallax';
 
 import HomeSocialButton from '../HomeSocialButton';
 import { particleConfig } from '../../utils/particle.config';
+import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, TWITTER_LINK } from './../../utils/config';
 
 
 class HomeUpperArea extends React.Component {
@@ -46,19 +47,19 @@ class HomeUpperArea extends React.Component {
 
                 <Grid container justify="center" spacing={5} style={{ zIndex: 2, color: '#ffffff', margin: '0' }}>
                     <Grid item >
-                        <HomeSocialButton iName="fab fa-linkedin" link="https://www.linkedin.com/in/arkadip"/>
+                        <HomeSocialButton iName="fab fa-linkedin" link={LINKEDIN_LINK} />
                     </Grid>
                     <Grid item>
-                        <HomeSocialButton iName="fab fa-github" link="https://github.com/darkmatter18"/>
+                        <HomeSocialButton iName="fab fa-github" link={GITHUB_LINK} />
                     </Grid>
                     <Grid item>
-                        <HomeSocialButton iName="fab fa-facebook" link="https://facebook.com/arkadipb"/>
+                        <HomeSocialButton iName="fab fa-facebook" link={FACEBOOK_LINK} />
                     </Grid>
                     <Grid item>
-                        <HomeSocialButton iName="fab fa-instagram" link="https://www.instagram.com/__dark_matter"/>
+                        <HomeSocialButton iName="fab fa-instagram" link={INSTAGRAM_LINK} />
                     </Grid>
                     <Grid item>
-                        <HomeSocialButton iName="fab fa-twitter" link="https://twitter.com/in2arkadipb13"/>
+                        <HomeSocialButton iName="fab fa-twitter" link={TWITTER_LINK} />
                     </Grid>
                 </Grid>
 

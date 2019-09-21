@@ -3,6 +3,7 @@ import { Grid, Typography, } from '@material-ui/core';
 
 import logo from './logo.jpeg';
 import HomeContactButtons from '../HomeContactButtons';
+import { WEBSITE_LINK, EMAIL_ID } from './../../utils/config';
 
 class HomeAboutArea extends React.Component {
     render() {
@@ -58,9 +59,9 @@ class HomeAboutArea extends React.Component {
                             <Typography align="left" variant="h6">
                                 Email:
                             </Typography>
-                            <a href="mailto: in2arkadipb13@gmail.com">
+                            <a href={`mailto: ${EMAIL_ID}`}>
                                 <Typography align="left" variant="body2">
-                                    in2arkadipb13@gmail.com
+                                    {EMAIL_ID}
                                 </Typography>
                             </a>
                         </div>
@@ -70,9 +71,9 @@ class HomeAboutArea extends React.Component {
                             <Typography align="left" variant="h6">
                                 Website:
                             </Typography>
-                            <a href="https://darkmatter18.cf">
+                            <a href={WEBSITE_LINK} >
                                 <Typography align="left" variant="body2">
-                                    https://darkmatter18.cf
+                                    {WEBSITE_LINK}
                                 </Typography>
                             </a>
                         </div>
