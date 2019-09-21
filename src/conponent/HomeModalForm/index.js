@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, Button, Typography } from '@material-ui/core';
+import { TextField, Button, Typography, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 
 class HomeModalForm extends React.Component {
@@ -105,7 +105,8 @@ class HomeModalForm extends React.Component {
                     style={{ backgroundColor: buttonBackgroundColor, color: '#ffffff', float: 'right' }}
                     disabled={submitting}
                 >
-                    Submit
+                    {submitting ? <CircularProgress size={24} style={{ color: '#00ad45', top: '50%', left: '50%', }} /> : 'Submit'}
+
                 </Button>
             </form>
         )
