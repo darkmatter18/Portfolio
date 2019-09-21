@@ -8,7 +8,7 @@ class HomeAboutArea extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div id="#about"></div>
+                <div id="about"></div>
                 <Grid container justify="center" style={{ paddingTop: '8rem' }}>
                     <Grid item lg={12}>
                         <Typography align="center" variant="h4" style={{ fontFamily: 'poppins-bold, sans-serif', color: '#00ad45' }}>
