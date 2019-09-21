@@ -46,19 +46,19 @@ class HomeUpperArea extends React.Component {
 
                 <Grid container justify="center" spacing={5} style={{ zIndex: 2, color: '#ffffff', margin: '0' }}>
                     <Grid item >
-                        <HomeSocialButton iName="fab fa-linkedin" />
+                        <HomeSocialButton iName="fab fa-linkedin" link="https://www.linkedin.com/in/arkadip"/>
                     </Grid>
                     <Grid item>
-                        <HomeSocialButton iName="fab fa-github" />
+                        <HomeSocialButton iName="fab fa-github" link="https://github.com/darkmatter18"/>
                     </Grid>
                     <Grid item>
-                        <HomeSocialButton iName="fab fa-facebook" />
+                        <HomeSocialButton iName="fab fa-facebook" link="https://facebook.com/arkadipb"/>
                     </Grid>
                     <Grid item>
-                        <HomeSocialButton iName="fab fa-instagram" />
+                        <HomeSocialButton iName="fab fa-instagram" link="https://www.instagram.com/__dark_matter"/>
                     </Grid>
                     <Grid item>
-                        <HomeSocialButton iName="fab fa-twitter" />
+                        <HomeSocialButton iName="fab fa-twitter" link="https://twitter.com/in2arkadipb13"/>
                     </Grid>
                 </Grid>
 
