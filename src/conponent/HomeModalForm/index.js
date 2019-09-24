@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, Button, Typography, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 
+import { G_RECAPTA_TOKEN } from './../../utils/config';
 class HomeModalForm extends React.Component {
     state = {
         name: '',
@@ -24,7 +25,7 @@ class HomeModalForm extends React.Component {
         this.setState({ submitting: true, buttonBackgroundColor: '#dbdbdb' });
 
         window.grecaptcha.ready(() => {
-            window.grecaptcha.execute('6LcGQncUAAAAAKYAaNg7ciOYFBEGMuaTQWbA8cEl', { action: 'login' }).then((token) => {
+            window.grecaptcha.execute(G_RECAPTA_TOKEN, { action: 'login' }).then((token) => {
                 this.submitRequest(token);
             });
         });

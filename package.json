@@ -1,6 +1,6 @@
 {
   "name": "darkmatter_material",
-  "version": "0.4.8",
+  "version": "0.5.5",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.1",

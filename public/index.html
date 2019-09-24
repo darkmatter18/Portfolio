@@ -30,7 +30,46 @@
 
     gtag('config', 'UA-147992308-1');
   </script>
+  <style>
+    #no-script {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: #f2efe9;
+      font-family: 'Roboto';
+    }
 
+
+    .no-script-message {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 575px;
+      transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      background: url(//maps.gstatic.com/tactile/basepage/pegman_sherlock.png) no-repeat;
+      background-size: 160px 193px;
+      height: 143px;
+      padding-top: 50px;
+      padding-left: 200px;
+      font-size: 30px;
+      font-weight: 300;
+    }
+
+    .no-script-help-link {
+      color: #4285F4;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      outline: none;
+    }
+  </style>
 
 
 
@@ -48,7 +87,15 @@
 </head>
 
 <body style="height: 100%">
-  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <noscript>
+    <div id="no-script">
+      <div class="no-script-message">
+        <div> When you have eliminated the <strong>JavaScript</strong>, whatever remains must be an empty page. </div>
+        <a class="no-script-help-link" href="//activatejavascript.org/en/instructions/chrome"
+          target="_blank"> Enable JavaScript to see My site. </a>
+      </div>
+    </div>
+  </noscript>
   <div id="root"></div>
   <!--
       This HTML file is a template.

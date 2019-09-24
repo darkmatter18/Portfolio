@@ -89,12 +89,12 @@ class HomeContactArea extends React.Component {
                         </Grid>
 
                         <Grid container style={{ paddingTop: '6rem' }}>
-                            <Grid item lg={6}>
+                            <Grid item lg={6} sm={12} md={12}>
                                 <Typography align="left" variant="body1">
                                     &copy; Arkadip
                                 </Typography>
                             </Grid>
-                            <Grid item lg={6}>
+                            <Grid item lg={6} sm={12} md={12}>
                                 <Typography align="right">
                                     <VersionInfo />
                                 </Typography>
