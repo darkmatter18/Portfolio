@@ -20,7 +20,7 @@ class HomeContactArea extends React.Component {
     }
 
     render() {
-
+        const year = new Date().getFullYear()
         const { modalOpen } = this.state;
 
         return (
@@ -88,15 +88,35 @@ class HomeContactArea extends React.Component {
                             </Grid>
                         </Grid>
 
-                        <Grid container style={{ paddingTop: '6rem' }}>
+                        <Grid container style={{ paddingTop: '6rem' }} justify="center">
                             <Grid item lg={6} sm={12} md={12}>
                                 <Typography align="left" variant="body1">
-                                    &copy; Arkadip
+                                    &copy; Arkadip, {year}
                                 </Typography>
                             </Grid>
                             <Grid item lg={6} sm={12} md={12}>
                                 <Typography align="right">
                                     <VersionInfo />
+                                </Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid container justify="center">
+                            <Grid item lg={12} sm={12} md={12} >
+                                <Typography align="center">
+                                    <a className="copyrighted-badge"
+                                        title="Copyrighted.com Registered &amp; Protected"
+                                        target="_blank"
+                                        href="https://www.copyrighted.com/website/7JnGIhGOhQKyfMGn"
+                                        rel="noopener noreferrer">
+                                        <img alt="Copyrighted.com Registered &amp; Protected"
+                                            border="0"
+                                            width="125"
+                                            height="25"
+                                            srcSet="https://static.copyrighted.com/badges/125x25/04_1_2x.png 2x"
+                                            src="https://static.copyrighted.com/badges/125x25/04_1.png"
+                                        />
+                                    </a>
                                 </Typography>
                             </Grid>
                         </Grid>
