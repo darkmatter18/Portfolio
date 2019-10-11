@@ -1,16 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { HOME } from './routes';
+import { HOME, PROJECTS } from './routes';
 import Home from './../../pages/Home';
+import Projects from '../../pages/Projects';
+import Page404 from '../../pages/404';
+
 
 const RouteComponent = () => {
     return (
         <div>
             <Router>
-                <div>
+                <Switch>
                     <Route path={HOME} exact component={Home} />
-                </div>
+                    <Route path={PROJECTS} exact component={Projects} />
+                    <Route path="*" component={Page404}/>
+                </Switch>
             </Router>
         </div>
     )
