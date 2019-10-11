@@ -1,5 +1,7 @@
 import React from 'react';
 import './index.css';
+import { Button } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 class Page404 extends React.Component {
     state = { digit1: null, digit2: null, digit3: null };
@@ -8,11 +10,15 @@ class Page404 extends React.Component {
         return Math.floor(9 * Math.random()) + 1
     };
 
+    onBackButtonClick = () => {
+        this.props.history.push('/');
+    }
+
     componentDidMount() {
         let loop1, loop2, loop3, time = 30, i = 0;
 
         loop3 = setInterval(() => {
-            if(40 < i){
+            if (40 < i) {
                 clearInterval(loop3);
                 this.setState({ digit3: 4 });
             }
@@ -23,7 +29,7 @@ class Page404 extends React.Component {
         }, time);
 
         loop2 = setInterval(() => {
-            if(80 < i){
+            if (80 < i) {
                 clearInterval(loop2);
                 this.setState({ digit2: 0 });
             }
@@ -34,7 +40,7 @@ class Page404 extends React.Component {
         }, time);
 
         loop1 = setInterval(() => {
-            if(100 < i){
+            if (100 < i) {
                 clearInterval(loop1);
                 this.setState({ digit1: 4 });
             }
@@ -46,7 +52,7 @@ class Page404 extends React.Component {
     }
 
     render() {
-        const { digit1, digit2, digit3 } = this.state
+        const { digit1, digit2, digit3 } = this.state;
 
         return (
             <div className="error">
@@ -65,7 +71,9 @@ class Page404 extends React.Component {
                             <div className="msg">OH!<span className="triangle"></span></div>
                         </div>
                         <h2 className="h1">Sorry! Page not found</h2>
-                        <a className="button" href="./index.php">Back to Home</a>
+                        <Button variant="outlined" size="large" onClick={this.onBackButtonClick}>
+                            Back TO home
+                        </Button>
                     </div>
                 </div>
             </div>
@@ -73,4 +81,4 @@ class Page404 extends React.Component {
     }
 }
 
-export default Page404;
+export default withRouter(Page404);
