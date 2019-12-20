@@ -1,10 +1,10 @@
 import React from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
-import HomeUpperArea from '../../conponent/HomeUpperArea';
-import HomeAboutArea from '../../conponent/HomeAboutArea';
-import HomeEducationArea from '../../conponent/HomeEducationArea';
-import HomeContactArea from '../../conponent/HomeContactArea';
+import HomeUpperArea from '../../component/HomeUpperArea';
+import HomeAboutArea from '../../component/HomeAboutArea';
+import HomeEducationArea from '../../component/HomeEducationArea';
+import HomeContactArea from '../../component/HomeContactArea';
 
 class Home extends React.Component {
     render() {

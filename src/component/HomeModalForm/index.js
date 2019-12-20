@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField, Button, Typography, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 
-import { G_RECAPTA_TOKEN } from './../../utils/config';
+import { G_RECAPTA_TOKEN } from '../../utils/config';
 class HomeModalForm extends React.Component {
     state = {
         name: '',
