@@ -29,8 +29,8 @@ class HomeContactButtons extends React.Component {
 
         return (
             <React.Fragment>
-                <Grid container spacing={5} justify="center" style={{ paddingBottom: '3rem' }}>
-                    <Grid item>
+                <Grid container  justify="center" style={{ paddingBottom: '3rem' }}>
+                    <Grid item style={{marginRight: 10}}>
                         <Button variant="outlined" onClick={this.onGitButtonClick}>
                             Get in Touch
                     </Button>

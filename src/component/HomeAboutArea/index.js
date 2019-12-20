@@ -17,7 +17,8 @@ class HomeAboutArea extends React.Component {
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid container justify="center" spacing={3} style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+
+                <Grid container justify="center" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
                     <Grid item  >
                         <img src={logo} alt="logo" style={{ maxHeight: '10rem' }} />
                     </Grid>
@@ -29,7 +30,7 @@ class HomeAboutArea extends React.Component {
                     </Grid>
                 </Grid>
 
-                <Grid container justify="center" spacing={10} style={{ paddingBottom: '2rem' }}>
+                <Grid container justify="center"  style={{ paddingBottom: '2rem' }}>
                     <Grid item >
                         <Typography align="left" variant="h5">
                             Personal Info
