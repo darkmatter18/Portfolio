@@ -11,7 +11,7 @@
     "react-particles-js": "^2.7.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.1",
-    "react-scroll-parallax": "^2.1.2",
+    "react-scroll-parallax": "^2.2.0",
     "react-vertical-timeline-component": "^2.5.0"
   },
   "scripts": {
