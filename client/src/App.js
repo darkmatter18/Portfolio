@@ -1,17 +1,16 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { CssBaseline } from '@material-ui/core';
 
-import RouteComponent from './utils/Routes';
+import RouteComponent from './routes';
 
 class App extends React.Component {
-
-  render () {
+  render() {
     return (
       <React.Fragment>
         <CssBaseline />
-        <RouteComponent />
+        <RouteComponent/>
       </React.Fragment>
-    );
+    )
   }
 }
 
