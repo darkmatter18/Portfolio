@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Typography, } from '@material-ui/core';
 
-import logo from './logo.jpeg';
+import logo from './../../images/logo.jpeg';
 import HomeContactButtons from '../HomeContactButtons';
 import { WEBSITE_LINK, EMAIL_ID } from './../../utils/config';
 
