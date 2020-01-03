@@ -1,4 +1,5 @@
 const axios = require('axios');
+const nodemailer = require('nodemailer');
 const S = '6LcGQncUAAAAAC567n0sA2qi_7ebg3QoZmPxBX1K'
 
 
@@ -12,7 +13,7 @@ module.exports = (app) => {
     if (checkRecapta(g_recap)) {
       if (validName(git_name) && validEmail(git_email)) {
         //send mail
-        sendMail(git_name, git_email, git_mob, git_msg)
+        sendMail(git_name, git_email, git_mob, git_msg);
         return res.status(200).json({ status: 'Y' })
       }
       else {
@@ -52,5 +53,30 @@ module.exports = (app) => {
     else {
       return false
     }
+  }
+
+  sendMail = (git_name, git_email, git_mob, git_msg) => {
+    const transporter = nodemailer.createTransport({
+      host: 'mail.arkadip.co',
+      port: 465,
+      secure: true,
+      auth: {
+        user: 'no-reply@arkadip.co',
+        pass: 'WV?8n&WTOuNw'
+      }
+    });
+
+    transporter.sendMail({
+      from: 'no-reply@arkadip.co',
+      to: git_email,
+      replyTo: 'in2arkadipb13@gmail.com',
+      subject: 'Thanks for connecting with me 😀',
+      html: `<p> Hi <b>${git_name}</b>, Thanks for connecting. I will connect with you`
+    }, (e, i) => {
+      if (e) {
+        console.log(e);
+      }
+      console.log('Message %s sent: %s', i.messageId, i.response);
+    })
   }
 }
