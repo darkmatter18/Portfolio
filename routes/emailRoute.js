@@ -1,7 +1,23 @@
 const axios = require('axios');
 const nodemailer = require('nodemailer');
-const S = '6LcGQncUAAAAAC567n0sA2qi_7ebg3QoZmPxBX1K'
 
+let recapta, mail_host, mail_port, mail_user, mail_pass, mail_replyto;
+if(process.env.NODE_ENV === 'production'){
+  recapta = process.env.recapta;
+  mail_host = process.env.mail_host;
+  mail_port = process.env.mail_port;
+  mail_user = process.env.mail_user;
+  mail_pass = process.env.mail_pass;
+  mail_replyto = process.env.mail_replyto;
+}
+else {
+  const config =  require('./../config');
+  recapta = config.recapta;
+  mail_host = config.host;
+  mail_user = config.user;
+  mail_pass = config.pass;
+  mail_replyto = config.replyto;
+}
 
 module.exports = (app) => {
   app.post(`/api/email`, (req, res) => {
@@ -26,7 +42,7 @@ module.exports = (app) => {
   });
 
   checkRecapta = async (g_recap) => {
-    await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${S}&response=${g_recap}`)
+    await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${recapta}&response=${g_recap}`)
       .then((res) => {
         console.log("Recaptcha Request Success");
         return res.data.success;
@@ -57,19 +73,19 @@ module.exports = (app) => {
 
   sendMail = (git_name, git_email, git_mob, git_msg) => {
     const transporter = nodemailer.createTransport({
-      host: 'mail.arkadip.co',
-      port: 465,
+      host: mail_host,
+      port: mail_port,
       secure: true,
       auth: {
-        user: 'no-reply@arkadip.co',
-        pass: 'WV?8n&WTOuNw'
+        user: mail_user,
+        pass: mail_pass
       }
     });
 
     transporter.sendMail({
-      from: 'no-reply@arkadip.co',
+      from: mail_user,
       to: git_email,
-      replyTo: 'in2arkadipb13@gmail.com',
+      replyTo: mail_replyto,
       subject: 'Thanks for connecting with me 😀',
       html: `<p> Hi <b>${git_name}</b>, Thanks for connecting. I will connect with you`
     }, (e, i) => {
