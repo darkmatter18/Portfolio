@@ -1,6 +1,7 @@
 const express = require('express');
-//const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const route = require('./routes/route');
+//const mongoose = require('mongoose');
 
 // IMPORT MODELS
 //require('./models/Product');
@@ -14,8 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //IMPORT ROUTES
-require('./routes/dummyRoute')(app);
-//require('./routes/productRoutes')(app);
+route(app);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextField, Button, Typography, CircularProgress } from '@material-ui/core';
-import axios from 'axios';
+import api from './../../api';
 
 import { G_RECAPTA_TOKEN } from '../../utils/config';
 class HomeModalForm extends React.Component {
@@ -32,7 +32,7 @@ class HomeModalForm extends React.Component {
     }
 
     submitRequest = async (token) => {
-        await axios.post('http://localhost:80/darkmatte_main/', {
+        await api.post('/email', {
             git_name: this.state.name,
             git_email: this.state.email,
             git_mob: this.state.number,
