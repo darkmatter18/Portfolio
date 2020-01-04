@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const route = require('./routes/route');
+const emailRoute =  require('./routes/emailRoute');
 //const mongoose = require('mongoose');
 
 // IMPORT MODELS
@@ -8,6 +8,7 @@ const route = require('./routes/route');
 
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 //mongoose.Promise = global.Promise;
 //mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/node-react-starter`);
@@ -15,7 +16,8 @@ const app = express();
 app.use(bodyParser.json());
 
 //IMPORT ROUTES
-route(app);
+app.use(`/api`, emailRoute)
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('public'));
@@ -27,7 +29,6 @@ if (process.env.NODE_ENV === 'production') {
 
 }
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`app running on port ${PORT}`)
+  console.log(`app running on http://localhost:${PORT}`)
 });
