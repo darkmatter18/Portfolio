@@ -16,7 +16,7 @@ mongoose.Promise = global.Promise;
 let PORT, mongoStr;
 if (process.env.NODE_ENV === 'production') {
   PORT = process.env.PORT;
-  mongoStr = `mongodb+srv://${process.env.mongouser}:${process.env.mongopass}@${process.env.mongoConnect}`;
+  mongoStr = `mongodb+srv://${process.env.mongouser}:${process.env.mongopass}@${process.env.mongoConnect}?${process.env.mongoQuery1}&${process.env.mongoQuery2}`;
 
   app.use(express.static('public'));
   app.get('*', (req, res) => {
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 else {
   PORT = 5000;
-  mongoStr = `mongodb+srv://${config.mongouser}:${config.mongopass}@${config.mongoConnect}`
+  mongoStr = `mongodb+srv://${config.mongouser}:${config.mongopass}@${config.mongoConnect}?${config.mongoQuery1}&${config.mongoQuery2}`;
 }
 
 //Mongodb connect
