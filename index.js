@@ -29,9 +29,6 @@ else {
 }
 
 //Mongodb connect
-
-
-
 mongoose.connect(mongoStr, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => {
     console.log("Connected with mongoDB cluster")
@@ -39,7 +36,8 @@ mongoose.connect(mongoStr, { useUnifiedTopology: true, useNewUrlParser: true })
   .catch((e) => {
     console.log("Failed to connect with MongoDB cluster");
     console.log(e);
-  })
+  });
+
 
 app.use(bodyParser.json());
 
