@@ -2,7 +2,7 @@ const axios = require('axios');
 const nodemailer = require('nodemailer');
 
 let recapta, mail_host, mail_port, mail_user, mail_pass, mail_replyto;
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
   recapta = process.env.recapta;
   mail_host = process.env.mail_host;
   mail_port = process.env.mail_port;
@@ -11,9 +11,10 @@ if(process.env.NODE_ENV === 'production'){
   mail_replyto = process.env.mail_replyto;
 }
 else {
-  const config =  require('./../config');
+  const config = require('./../config');
   recapta = config.recapta;
   mail_host = config.host;
+  mail_port = config.port;
   mail_user = config.user;
   mail_pass = config.pass;
   mail_replyto = config.replyto;
@@ -82,6 +83,7 @@ module.exports = (app) => {
       }
     });
 
+    // Mail to the form filler
     transporter.sendMail({
       from: mail_user,
       to: git_email,
@@ -92,7 +94,24 @@ module.exports = (app) => {
       if (e) {
         console.log(e);
       }
-      console.log('Message %s sent: %s', i.messageId, i.response);
-    })
+      else{
+        console.log('Message %s sent: %s', i.messageId, i.response);
+      }
+    });
+
+    //Mail to me
+    transporter.sendMail({
+      from: mail_user,
+      to: mail_replyto,
+      subject: 'Someone was recently connected with you',
+      html: `${git_name}, recently connected with you`
+    }, (e, i) => {
+      if (e) {
+        console.log(e);
+      }
+      else{
+        console.log('Message %s sent: %s', i.messageId, i.response);
+      }
+    });
   }
 }
