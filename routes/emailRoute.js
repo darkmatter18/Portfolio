@@ -1,6 +1,8 @@
-const express =  require('express');
+const express = require('express');
 const axios = require('axios');
 const nodemailer = require('nodemailer');
+
+const emailModel = require('./../models/emailModel');
 
 let recapta, mail_host, mail_port, mail_user, mail_pass, mail_replyto;
 if (process.env.NODE_ENV === 'production') {
@@ -31,6 +33,7 @@ emailRouter.post(`/email`, (req, res) => {
   if (checkRecapta(g_recap)) {
     if (validName(git_name) && validEmail(git_email)) {
       //send mail
+      saveDB(git_name, git_email, git_mob, git_msg);
       sendMail(git_name, git_email, git_mob, git_msg);
       return res.status(200).json({ status: 'Y' })
     }
@@ -53,7 +56,7 @@ checkRecapta = async (g_recap) => {
       console.log('Error: ', error);
       return false;
     })
-}
+};
 
 validName = (name) => {
   if (name.length > 0) {
@@ -62,7 +65,7 @@ validName = (name) => {
   else {
     return false
   }
-}
+};
 
 validEmail = (email) => {
   if (email.length > 0) {
@@ -71,7 +74,7 @@ validEmail = (email) => {
   else {
     return false
   }
-}
+};
 
 sendMail = (git_name, git_email, git_mob, git_msg) => {
   const transporter = nodemailer.createTransport({
@@ -114,6 +117,23 @@ sendMail = (git_name, git_email, git_mob, git_msg) => {
       console.log('Message %s sent: %s', i.messageId, i.response);
     }
   });
-}
+};
 
-module.exports = emailRouter
+saveDB = (git_name, git_email, git_mob, git_msg) => {
+  emailModel.collection.insertOne({
+    name: git_name,
+    email: git_email,
+    phone: git_mob,
+    git_msg: git_msg
+  })
+    .then((s) => {
+      console.log("Successfully inserted record to DB");
+      console.log("Inserted %s, id: %s", s.insertedCount, s.insertedId);
+    })
+    .catch((e) => {
+      console.log("Failed to insert record to DB");
+      console.log(e);
+    });
+};
+
+module.exports = emailRouter;

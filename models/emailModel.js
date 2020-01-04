@@ -10,4 +10,4 @@ const emailModel = new Schema({
     time: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('emailModwel', emailModel);
+module.exports = mongoose.model('emailModel', emailModel);
