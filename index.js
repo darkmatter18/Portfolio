@@ -1,17 +1,45 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const emailRoute =  require('./routes/emailRoute');
-//const mongoose = require('mongoose');
+const path = require('path');
+const mongoose = require('mongoose');
+
+const emailRoute = require('./routes/emailRoute');
+const config = require('./config');
 
 // IMPORT MODELS
 //require('./models/Product');
 
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+mongoose.Promise = global.Promise;
 
-//mongoose.Promise = global.Promise;
-//mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/node-react-starter`);
+let PORT, mongoStr;
+if (process.env.NODE_ENV === 'production') {
+  PORT = process.env.PORT;
+  mongoStr = `mongodb+srv://${process.env.mongouser}:${process.env.mongopass}@${process.env.mongoConnect}`;
+
+  app.use(express.static('public'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+  })
+}
+else {
+  PORT = 5000;
+  mongoStr = `mongodb+srv://${config.mongouser}:${config.mongopass}@${config.mongoConnect}`
+}
+
+//Mongodb connect
+
+
+
+mongoose.connect(mongoStr, { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(() => {
+    console.log("Connected with mongoDB cluster")
+  })
+  .catch((e) => {
+    console.log("Failed to connect with MongoDB cluster");
+    console.log(e);
+  })
 
 app.use(bodyParser.json());
 
@@ -19,15 +47,6 @@ app.use(bodyParser.json());
 app.use(`/api`, emailRoute)
 
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('public'));
-
-  const path = require('path');
-  app.get('*', (req,res) => {
-      res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-  })
-
-}
 
 app.listen(PORT, () => {
   console.log(`app running on http://localhost:${PORT}`)
