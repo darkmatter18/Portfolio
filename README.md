@@ -1,4 +1,4 @@
 # arkadip.co
 
-[![CircleCI](https://circleci.com/gh/darkmatter18/arkadip.co.svg?style=svg)](https://circleci.com/gh/darkmatter18/arkadip.co)
+[![Travis CI](https://travis-ci.com/darkmatter18/arkadip.co.svg?branch=master)](https://travis-ci.com/darkmatter18/arkadip.co)
 
