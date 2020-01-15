@@ -16,11 +16,11 @@ if (process.env.NODE_ENV === 'production') {
 else {
   const config = require('./../devconfig');
   recapta = config.recapta;
-  mail_host = config.host;
-  mail_port = config.port;
-  mail_user = config.user;
-  mail_pass = config.pass;
-  mail_replyto = config.replyto;
+  mail_host = config.mail_host;
+  mail_port = config.mail_port;
+  mail_user = config.mail_user;
+  mail_pass = config.mail_pass;
+  mail_replyto = config.mail_replyto;
 }
 
 const emailRouter = express.Router();

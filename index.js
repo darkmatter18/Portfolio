@@ -13,8 +13,9 @@ app.set('trust proxy', true);
 
 let PORT, mongoStr;
 if (process.env.NODE_ENV === 'production') {
+  require('dotenv').config();
   PORT = process.env.PORT;
-  mongoStr = `mongodb+srv://${process.env.mongouser}:${process.env.mongopass}@${process.env.mongoConnect}?${process.env.mongoQuery1}&${process.env.mongoQuery2}`;
+  mongoStr = `mongodb+srv://${process.env.mongouser}:${process.env.mongopass}@${process.env.mongoConnect}?retryWrites=true&w=majority`;
 
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
@@ -24,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 else {
   const config = require('./devconfig');
   PORT = 5000;
-  mongoStr = `mongodb+srv://${config.mongouser}:${config.mongopass}@${config.mongoConnect}?${config.mongoQuery1}&${config.mongoQuery2}`;
+  mongoStr = `mongodb+srv://${config.mongouser}:${config.mongopass}@${config.mongoConnect}?retryWrites=true&w=majority`;
 }
 
 //Mongodb connect
