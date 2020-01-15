@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "devclient": "node client/scripts/start.js",
-    "testclient": "node client/scripts/test.js",
+    "testclient": "npm test --prefix client",
     "buildclient": "node client/scripts/build.js",
     "installclient": "npm install --prefix client",
     "devserver": "nodemon index.js",
