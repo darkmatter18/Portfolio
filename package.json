@@ -8,16 +8,13 @@
     "testclient": "npm test --prefix client",
     "buildclient": "yarn --cwd \"client\" build",
     "installclient": "yarn --cwd \"client\"",
-    
     "devserver": "nodemon index.js",
     "startserver": "node index.js",
     "testserver": "echo :\" No Test is specified for server\"",
-    
-    "test": "npm run testserver && npm run testclient",
-    "installpackage": "npm install && npm run installclient",
-    "prestart": "npm run buildclient",
+    "prestart": "yarn --cwd \"client\" build",
     "start": "node index.js",
-    
+    "preinstall": "yarn --cwd \"client\"",
+    "test": "npm run testserver && npm run testclient",
     "dev": "concurrently --kill-others-on-fail \"npm run devserver\" \"npm run devclient\""
   },
   "keywords": [],
