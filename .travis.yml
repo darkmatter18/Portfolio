@@ -7,7 +7,7 @@ before_install:
     -d
 before_deploy:
   - ls
-  - npm run preinstall
+  - npm run prestart
 deploy:
   provider: gae
   keyfile: arkadipco-264916-701bb69b8a52.json
