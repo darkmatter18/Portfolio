@@ -1,3 +1,9 @@
 language: node_js
 node_js:
- - 12
+- 12
+before_install:
+- openssl aes-256-cbc -K $encrypted_d44c9d791d27_key -iv $encrypted_d44c9d791d27_iv
+  -in app.yaml.enc -out ./../app.yaml -d
+- openssl aes-256-cbc -K $encrypted_d44c9d791d27_key -iv $encrypted_d44c9d791d27_iv
+  -in arkadipco-264916-a2feb3b33ec8.json.enc -out ./../arkadipco-264916-a2feb3b33ec8.json
+  -d
