@@ -16,6 +16,7 @@
     "preinstall": "yarn --cwd \"client\"",
     "test": "npm run testserver && npm run testclient",
     "dev": "concurrently --kill-others-on-fail \"npm run devserver\" \"npm run devclient\""
+    
   },
   "keywords": [],
   "author": "",
