@@ -11,4 +11,4 @@ deploy:
   provider: gae
   keyfile: arkadipco-264916-701bb69b8a52.json
   project: arkadipco-264916
-  skip_cleanup: true
+  cleanup: true
