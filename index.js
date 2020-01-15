@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 else {
-  const config = require('./config');
+  const config = require('./devconfig');
   PORT = 5000;
   mongoStr = `mongodb+srv://${config.mongouser}:${config.mongopass}@${config.mongoConnect}?${config.mongoQuery1}&${config.mongoQuery2}`;
 }

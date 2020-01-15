@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
   mail_replyto = process.env.mail_replyto;
 }
 else {
-  const config = require('./../config');
+  const config = require('./../devconfig');
   recapta = config.recapta;
   mail_host = config.host;
   mail_port = config.port;
