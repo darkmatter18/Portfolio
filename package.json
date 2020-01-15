@@ -4,11 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "npm run start --prefix client",
-    "server": "nodemon index.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "devclient": "yarn --cwd \"client\" start",
+    "testclient": "npm test --prefix client",
+    "buildclient": "yarn --cwd \"client\" build",
+    "installclient": "yarn --cwd \"client\"",
+    
+    "devserver": "nodemon index.js",
+    "startserver": "node index.js",
+    "testserver": "echo :\" No Test is specified for server\"",
+    
+    "test": "npm run testserver && npm run testclient",
+    "installpackage": "npm install && npm run installclient",
+    "prestart": "npm run buildclient",
     "start": "node index.js",
-    "test": "node client/scripts/test.js"
+    
+    "dev": "concurrently --kill-others-on-fail \"npm run devserver\" \"npm run devclient\""
   },
   "keywords": [],
   "author": "",
