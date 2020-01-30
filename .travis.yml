@@ -7,7 +7,8 @@ before_install:
     -d
 before_deploy:
   - ls
-  - ./envset.sh 
+  - ./envset.sh
+  - cat app.yaml
 deploy:
   provider: gae
   keyfile: arkadipco-264916-701bb69b8a52.json
