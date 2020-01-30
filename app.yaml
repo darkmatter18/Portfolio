@@ -1,1 +1,2 @@
-runtime: nodejs12
+runtime: nodejs10
+env_variables:
