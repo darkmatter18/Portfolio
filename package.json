@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devclient": "node client/scripts/start.js",
+    "devclient": "npm start --prefix client",
     "testclient": "npm test --prefix client",
     "buildclient": "node client/scripts/build.js",
     "installclient": "npm install --prefix client",
