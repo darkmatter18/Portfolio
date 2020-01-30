@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 
 const emailModel = require('./../models/emailModel');
 
-let recapta, mail_host, mail_port, mail_user, mail_pass, mail_replyto;
+let recapta, mail_host, mail_port, mail_user, mail_pass, mail_replyto, mail_secure;
 if (process.env.NODE_ENV === 'production') {
   recapta = process.env.recapta;
   mail_host = process.env.mail_host;
@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === 'production') {
   mail_user = process.env.mail_user;
   mail_pass = process.env.mail_pass;
   mail_replyto = process.env.mail_replyto;
+  mail_secure = process.env.mail_secure;
 }
 else {
   const config = require('./../devconfig');
@@ -21,6 +22,7 @@ else {
   mail_user = config.mail_user;
   mail_pass = config.mail_pass;
   mail_replyto = config.mail_replyto;
+  mail_secure = config.mail_secure;
 }
 
 const emailRouter = express.Router();
@@ -80,7 +82,7 @@ sendMail = (git_name, git_email, git_mob, git_msg) => {
   const transporter = nodemailer.createTransport({
     host: mail_host,
     port: mail_port,
-    secure: true,
+    secure: mail_secure,
     auth: {
       user: mail_user,
       pass: mail_pass
