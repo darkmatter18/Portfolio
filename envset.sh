@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo ' recapta: '${recapta} >> app.yaml
+echo '
+ recapta: '${recapta} >> app.yaml
 echo ' mail_host: '${mail_host} >> app.yaml
 echo ' mail_port: '${mail_port} >> app.yaml
 echo ' mail_user: '${mail_user} >> app.yaml
