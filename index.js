@@ -4,7 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const emailRoute = require('./routes/emailRoute');
-
+const mailTransporter = require('./utils/mailConfig');
 
 const app = express();
 mongoose.Promise = global.Promise;
@@ -38,6 +38,16 @@ mongoose.connect(mongoStr, { useUnifiedTopology: true, useNewUrlParser: true })
     console.log(e);
   });
 
+// Mail Transporter Verify
+mailTransporter.verify((e, m) => {
+  if(e){
+    console.log(e);
+  }
+  else{
+    console.log(m, "Server is ready to take our messages");
+
+  }
+});
 
 app.use(bodyParser.json());
 

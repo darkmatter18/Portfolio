@@ -1,37 +1,26 @@
 const express = require('express');
 const axios = require('axios');
-const nodemailer = require('nodemailer');
+const emailRouter = express.Router();
 
 const emailModel = require('./../models/emailModel');
+const mailTransporter = require('./../utils/mailConfig');
 
-let recapta, mail_host, mail_port, mail_user, mail_pass, mail_replyto, mail_secure;
+let recapta;
 if (process.env.NODE_ENV === 'production') {
   recapta = process.env.recapta;
-  mail_host = process.env.mail_host;
-  mail_port = process.env.mail_port;
-  mail_user = process.env.mail_user;
-  mail_pass = process.env.mail_pass;
-  mail_replyto = process.env.mail_replyto;
-  mail_secure = process.env.mail_secure;
 }
 else {
   const config = require('./../devconfig');
   recapta = config.recapta;
-  mail_host = config.mail_host;
-  mail_port = config.mail_port;
-  mail_user = config.mail_user;
-  mail_pass = config.mail_pass;
-  mail_replyto = config.mail_replyto;
-  mail_secure = config.mail_secure;
 }
 
-const emailRouter = express.Router();
 emailRouter.post(`/email`, (req, res) => {
   const git_name = req.body.git_name;
   const git_email = req.body.git_email;
   const git_mob = req.body.git_mob;
   const git_msg = req.body.git_msg;
   const g_recap = req.body.g_recap;
+
   if (checkRecapta(g_recap)) {
     if (validName(git_name) && validEmail(git_email)) {
       //send mail
@@ -79,18 +68,9 @@ validEmail = (email) => {
 };
 
 sendMail = (git_name, git_email, git_mob, git_msg) => {
-  const transporter = nodemailer.createTransport({
-    host: mail_host,
-    port: mail_port,
-    secure: mail_secure,
-    auth: {
-      user: mail_user,
-      pass: mail_pass
-    }
-  });
 
   // Mail to the form filler
-  transporter.sendMail({
+  mailTransporter.sendMail({
     from: mail_user,
     to: git_email,
     replyTo: mail_replyto,
@@ -106,7 +86,7 @@ sendMail = (git_name, git_email, git_mob, git_msg) => {
   });
 
   //Mail to me
-  transporter.sendMail({
+  mailTransporter.sendMail({
     from: mail_user,
     to: mail_replyto,
     subject: 'Someone was recently connected with you',
