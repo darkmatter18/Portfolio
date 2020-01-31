@@ -44,7 +44,8 @@ mailTransporter.verify((e, m) => {
     console.log(e);
   }
   else{
-    console.log(m);
+    console.log(m, "Server is ready to take our messages");
+
   }
 });
 
