@@ -41,7 +41,8 @@ class HomeAboutArea extends React.Component {
                                 Full Name:
                             </Typography>
                             <Typography align="left" variant="body2">
-                                Arkadip Bhattacharya
+                                Arkadip Bhattacharya <br/>
+                                <span style={{fontFamily: 'Mina'}}>অর্কদীপ ভট্টাচার্য্য</span>
                             </Typography>
                         </div>
 
