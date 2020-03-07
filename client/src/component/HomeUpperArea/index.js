@@ -1,6 +1,6 @@
+import GitHubButton from 'react-github-btn';
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import GitHubButton from 'react-github-btn';
 
 import HomeSocialButton from '../HomeSocialButton';
 import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, TWITTER_LINK } from './../../utils/config';
