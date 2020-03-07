@@ -67,10 +67,13 @@ class HomeContactArea extends React.Component {
                                     E-Mail me at
                                 </Typography>
 
-                                <Typography variant="subtitle2" align="center" style={{ opacity: 0.6 }}>
-                                    {EMAIL_ID}
-                                    <br />
-                                </Typography>
+                                <a href={`mailto:${EMAIL_ID}`} style={{color: '#ffffff'}}>
+                                    <Typography variant="subtitle2" align="center" style={{ opacity: 0.6 }}>
+                                        {EMAIL_ID}
+                                    </Typography>
+                                </a>
+                                <br />
+                            
                             </Grid>
                             <Grid item lg={4}>
                                 <Typography align="center">
