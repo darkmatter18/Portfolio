@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
+import GitHubButton from 'react-github-btn'
 
 import HomeSocialButton from '../HomeSocialButton';
 import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, TWITTER_LINK } from './../../utils/config';
@@ -13,6 +14,15 @@ class HomeUpperArea extends React.Component {
             <Grid container alignItems="center" style={{ backgroundColor: '#000000', height: '100%', minHeight: '760px', width: '100%' }}>
 
                 <HomeParticleComponent />
+
+                <div style={{ marginLeft: '93%' }}>
+                    <GitHubButton href="https://github.com/darkmatter18/arkadip.co"
+                        data-color-scheme="no-preference: light; light: light; dark: light;"
+                        data-icon="octicon-star" data-show-count="true"
+                        aria-label="Star darkmatter18/arkadip.co on GitHub">
+                        Star
+                    </GitHubButton>
+                </div>
 
                 <Grid container alignItems="center" style={{ zIndex: 2, margin: '15% 0 0 0' }}>
                     <Grid item lg={12}>
