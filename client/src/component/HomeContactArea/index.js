@@ -104,19 +104,7 @@ class HomeContactArea extends React.Component {
                         <Grid container justify="center">
                             <Grid item lg={12} sm={12} md={12} >
                                 <Typography align="center">
-                                    <a className="copyrighted-badge"
-                                        title="Copyrighted.com Registered &amp; Protected"
-                                        target="_blank"
-                                        href="https://www.copyrighted.com/website/7JnGIhGOhQKyfMGn"
-                                        rel="noopener noreferrer">
-                                        <img alt="Copyrighted.com Registered &amp; Protected"
-                                            border="0"
-                                            width="125"
-                                            height="25"
-                                            srcSet="https://static.copyrighted.com/badges/125x25/04_1_2x.png 2x"
-                                            src="https://static.copyrighted.com/badges/125x25/04_1.png"
-                                        />
-                                    </a>
+                                    Made with 💚 by <b>Arkadip</b>
                                 </Typography>
                             </Grid>
                         </Grid>
