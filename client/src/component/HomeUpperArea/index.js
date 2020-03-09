@@ -1,4 +1,3 @@
-import GitHubButton from 'react-github-btn';
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 
@@ -15,14 +14,9 @@ class HomeUpperArea extends React.Component {
 
                 <HomeParticleComponent />
 
-                <div style={{ marginLeft: '93%' }}>
-                    <GitHubButton href="https://github.com/darkmatter18/arkadip.co"
-                        data-color-scheme="no-preference: light; light: light; dark: light;"
-                        data-icon="octicon-star" data-show-count="true"
-                        aria-label="Star darkmatter18/arkadip.co on GitHub">
-                        Star
-                    </GitHubButton>
-                </div>
+                {/* <div style={{ marginLeft: '93%' }}>
+
+                </div> */}
 
                 <Grid container alignItems="center" style={{ zIndex: 2, margin: '15% 0 0 0' }}>
                     <Grid item lg={12}>
