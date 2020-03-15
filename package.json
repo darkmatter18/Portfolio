@@ -27,6 +27,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.4",
     "nodemailer": "^6.4.4"
+    "mongoose": "^5.9.4",
+    "nodemailer": "^6.4.5"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
