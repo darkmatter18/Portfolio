@@ -11,7 +11,6 @@
     "devserver": "nodemon index.js",
     "startserver": "node index.js",
     "testserver": "echo :\" No Test is specified for server\"",
-    "gcp-build": "cd client && npm install && npm run build",
     "start": "node index.js",
     "preinstall": "npm install --prefix client",
     "test": "npm run testserver && npm run testclient",
