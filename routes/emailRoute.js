@@ -3,15 +3,19 @@ const axios = require('axios');
 const emailRouter = express.Router();
 
 const emailModel = require('./../models/emailModel');
-const mailTransporter = require('./../utils/mailConfig');
+const sgMail = require('./../utils/mailConfig');
 
-let recapta;
+let recapta, MAIL_SENDER, MAIL_REPLYTO;
 if (process.env.NODE_ENV === 'production') {
   recapta = process.env.recapta;
+  MAIL_SENDER = process.env.MAIL_SENDER;
+  MAIL_REPLYTO = process.env.MAIL_REPLYTO;
 }
 else {
   const config = require('./../devconfig');
   recapta = config.recapta;
+  MAIL_SENDER = config.MAIL_SENDER;
+  MAIL_REPLYTO = config.MAIL_REPLYTO;
 }
 
 emailRouter.post(`/email`, (req, res) => {
@@ -69,36 +73,22 @@ validEmail = (email) => {
 
 sendMail = (git_name, git_email, git_mob, git_msg) => {
 
-  // Mail to the form filler
-  mailTransporter.sendMail({
-    from: mail_user,
+  sgMail.send({
     to: git_email,
-    replyTo: mail_replyto,
+    from: MAIL_SENDER,
+    replyTo: MAIL_REPLYTO,
     subject: 'Thanks for connecting with me 😀',
     html: `<p> Hi <b>${git_name}</b>, Thanks for connecting. I will connect with you`
-  }, (e, i) => {
-    if (e) {
-      console.log(e);
-    }
-    else {
-      console.log('Message %s sent: %s', i.messageId, i.response);
-    }
-  });
+  })
+    .then((x) => { console.log("Msg Send: ",x[0].complete) }, console.error);
 
-  //Mail to me
-  mailTransporter.sendMail({
-    from: mail_user,
-    to: mail_replyto,
+  sgMail.send({
+    to: MAIL_REPLYTO,
+    from: MAIL_SENDER,
     subject: 'Someone was recently connected with you',
     html: `${git_name}, recently connected with you`
-  }, (e, i) => {
-    if (e) {
-      console.log(e);
-    }
-    else {
-      console.log('Message %s sent: %s', i.messageId, i.response);
-    }
-  });
+  })
+    .then((x) => { console.log("Msg Send: ",x[0].complete) }, console.error);
 };
 
 saveDB = (git_name, git_email, git_mob, git_msg) => {
