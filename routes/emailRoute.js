@@ -80,7 +80,7 @@ sendMail = (git_name, git_email, git_mob, git_msg) => {
     subject: 'Thanks for connecting with me 😀',
     html: `<p> Hi <b>${git_name}</b>, Thanks for connecting. I will connect with you`
   })
-    .then((x) => { console.log(x) }, console.error);
+    .then((x) => { console.log("Msg Send: ",x[0].complete) }, console.error);
 
   sgMail.send({
     to: MAIL_REPLYTO,
@@ -88,7 +88,7 @@ sendMail = (git_name, git_email, git_mob, git_msg) => {
     subject: 'Someone was recently connected with you',
     html: `${git_name}, recently connected with you`
   })
-    .then((x) => { console.log(x) }, console.error);
+    .then((x) => { console.log("Msg Send: ",x[0].complete) }, console.error);
 };
 
 saveDB = (git_name, git_email, git_mob, git_msg) => {
