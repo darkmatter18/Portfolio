@@ -5,17 +5,18 @@ const emailRouter = express.Router();
 const emailModel = require('./../models/emailModel');
 const sgMail = require('./../utils/mailConfig');
 
-let recapta;
+let recapta, MAIL_SENDER, MAIL_REPLYTO;
 if (process.env.NODE_ENV === 'production') {
   recapta = process.env.recapta;
+  MAIL_SENDER = process.env.MAIL_SENDER;
+  MAIL_REPLYTO = process.env.MAIL_REPLYTO;
 }
 else {
   const config = require('./../devconfig');
   recapta = config.recapta;
+  MAIL_SENDER = config.MAIL_SENDER;
+  MAIL_REPLYTO = config.MAIL_REPLYTO;
 }
-
-MAIL_SENDER = 'no-reply@arkadip.co';
-MAIL_REPLYTO = 'in2arkadipb13@gmail.com';
 
 emailRouter.post(`/email`, (req, res) => {
   const git_name = req.body.git_name;
