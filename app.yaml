@@ -1,2 +1,3 @@
 runtime: nodejs10
+secure: always
 env_variables:
