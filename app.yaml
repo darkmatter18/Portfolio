@@ -1,3 +1,7 @@
 runtime: nodejs10
-secure: always
+handlers:
+- url: /.*
+  script: auto
+  secure: always
+  redirect_http_response_code: 301
 env_variables:
