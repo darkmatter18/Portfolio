@@ -23,7 +23,7 @@ import HomeParticleComponent from '../HomeParticleComponent';
 
 const style = (theme) => ({
     background: {
-        backgroundColor: theme.palette.text.primary,
+        backgroundColor: '#000000',
         height: window.innerHeight,
         width: window.innerWidth
     },
