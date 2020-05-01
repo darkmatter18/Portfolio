@@ -18,7 +18,7 @@ import React from 'react';
 import { Grid, Typography, withStyles } from '@material-ui/core';
 
 import HomeSocialButton from '../HomeSocialButton';
-import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, TWITTER_LINK } from './../../utils/config';
+import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, TWITTER_LINK } from "./../../constant";
 import HomeParticleComponent from '../HomeParticleComponent';
 
 const style = (theme) => ({

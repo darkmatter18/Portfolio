@@ -3,7 +3,7 @@ import { Grid, Typography } from "@material-ui/core";
 
 import logo from "./../../images/logo.jpeg";
 import HomeContactButtons from "../HomeContactButtons";
-import { WEBSITE_LINK, EMAIL_ID } from "./../../utils/config";
+import { WEBSITE_LINK, EMAIL_ID } from "./../../constant";
 
 class HomeAboutArea extends React.Component {
   render() {
