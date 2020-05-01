@@ -7,8 +7,8 @@ const style = (theme) => ({
     main: {
         zIndex: 0,
         position: 'absolute',
-        height: window.innerHeight,
-        width: window.innerWidth
+        height: window.innerHeight - 20,
+        width: window.innerWidth - 20
     },
 });
 
@@ -116,7 +116,7 @@ class HomeParticleComponent extends React.Component {
         return (
             <React.Fragment>
                 <div className={this.props.classes.main}>
-                    <Particles params={particleConfig} height={window.innerHeight} width={window.innerWidth} />
+                    <Particles params={particleConfig} height={window.innerHeight - 20} width={window.innerWidth - 20} />
                 </div>
             </React.Fragment>
         )
