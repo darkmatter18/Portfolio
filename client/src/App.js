@@ -1,14 +1,17 @@
 import React from 'react';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 
 import RouteComponent from './routes';
+import theme from './theme';
 
 class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <CssBaseline />
-        <RouteComponent/>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <RouteComponent />
+        </ThemeProvider>
       </React.Fragment>
     )
   }
