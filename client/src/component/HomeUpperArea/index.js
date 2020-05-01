@@ -15,31 +15,52 @@
  */
 
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, withStyles } from '@material-ui/core';
 
 import HomeSocialButton from '../HomeSocialButton';
 import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, TWITTER_LINK } from './../../utils/config';
 import HomeParticleComponent from '../HomeParticleComponent';
 
+const style = (theme) => ({
+    background: {
+        backgroundColor: theme.palette.text.primary,
+        height: window.innerHeight,
+        width: window.innerWidth
+    },
+    upperHeading: {
+        fontFamily: 'poppins-bold, sans-serif',
+    },
+    mainHeading: {
+        fontFamily: 'poppins-medium, sans-serif',
+        color: '#ffffff'
+    },
+    subHeading: {
+        color: '#ffffff'
+    },
+    buttons: { 
+        zIndex: 2,
+        color: '#ffffff',
+        margin: '0'
+    }
+})
 
 class HomeUpperArea extends React.Component {
     render() {
+
+        const { classes } = this.props;
+
         const s = " | ";
         return (
-            <Grid container alignItems="center" style={{ backgroundColor: '#000000', height: '100%', minHeight: '760px', width: '100%' }}>
+            <Grid container alignItems="center" className={classes.background}>
 
                 <HomeParticleComponent />
 
-                {/* <div style={{ marginLeft: '93%' }}>
-
-                </div> */}
-
                 <Grid container alignItems="center" style={{ zIndex: 2, margin: '15% 0 0 0' }}>
                     <Grid item lg={12}>
-                        <Typography align="center" variant="h5" style={{ fontFamily: 'poppins-bold, sans-serif', color: '#00ad45' }}>
+                        <Typography align="center" variant="h5" color="secondary" className={classes.upperHeading}>
                             HELLO, WORLD.
                         </Typography>
-                        <Typography align="center" variant="h1" style={{ fontFamily: 'poppins-medium, sans-serif', color: '#ffffff' }}>
+                        <Typography align="center" variant="h1" className={classes.mainHeading}>
                             I'm Arkadip
                         </Typography>
                     </Grid>
@@ -47,7 +68,7 @@ class HomeUpperArea extends React.Component {
 
                 <Grid container style={{ zIndex: 2, margin: '0 0 0 0' }}>
                     <Grid item lg={12}>
-                        <Typography align="center" variant="h5" style={{ color: '#ffffff' }}>
+                        <Typography align="center" variant="h5" className={classes.subHeading}>
                             {`${s}`}
                             <span>Deep Learning</span>
                             {`${s}`}
@@ -59,7 +80,7 @@ class HomeUpperArea extends React.Component {
                     </Grid>
                 </Grid>
 
-                <Grid container justify="center" spacing={5} style={{ zIndex: 2, color: '#ffffff', margin: '0' }}>
+                <Grid container justify="center" spacing={5} className={classes.buttons}>
                     <Grid item >
                         <HomeSocialButton iName="fab fa-linkedin" link={LINKEDIN_LINK} />
                     </Grid>
@@ -77,7 +98,7 @@ class HomeUpperArea extends React.Component {
                     </Grid>
                 </Grid>
 
-                <Grid container justify="center" style={{ zIndex: 2, color: '#ffffff', margin: '0' }}>
+                <Grid container justify="center" className={classes.buttons}>
                     <Grid item lg={12}>
                         <Typography align="center">
                             <HomeSocialButton iName="fas fa-chevron-down" link="#about" />
@@ -90,4 +111,4 @@ class HomeUpperArea extends React.Component {
     }
 }
 
-export default HomeUpperArea;
+export default withStyles(style)(HomeUpperArea);
