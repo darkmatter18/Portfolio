@@ -24,8 +24,8 @@ import HomeParticleComponent from '../HomeParticleComponent';
 const style = (theme) => ({
     background: {
         backgroundColor: '#000000',
-        height: window.innerHeight,
-        width: window.innerWidth
+        height: '100%',
+        width: '100%'
     },
     upperHeading: {
         fontFamily: 'poppins-bold, sans-serif',
