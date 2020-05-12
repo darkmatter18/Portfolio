@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
+const rateLimit = require("express-rate-limit");
 
 const emailRoute = require('./routes/emailRoute');
 
@@ -17,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
   mongoStr = `mongodb+srv://${process.env.mongouser}:${process.env.mongopass}@${process.env.mongoConnect}?retryWrites=true&w=majority`;
 
   app.use(express.static('client/build'));
-  app.get('*', (req, res) => {
+  app.get('*', rateLimit(),(req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   });
 }
