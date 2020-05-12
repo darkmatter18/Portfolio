@@ -3,6 +3,8 @@
 Link to the Website: [**`arkadip.co`**](http://www.arkadip.co)
 
 [![Travis CI](https://travis-ci.com/darkmatter18/arkadip.co.svg?branch=master)](https://travis-ci.com/darkmatter18/arkadip.co)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/darkmatter18/arkadip.co.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/darkmatter18/arkadip.co/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/darkmatter18/arkadip.co.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/darkmatter18/arkadip.co/context:javascript)
 
 My own Personal `Portfolio` Website. A perfect example of `MERN Stack`.
 
