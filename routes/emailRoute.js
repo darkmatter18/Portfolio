@@ -25,7 +25,7 @@ emailRouter.post(`/email`, (req, res) => {
   const git_msg = req.body.git_msg;
   const g_recap = req.body.g_recap;
 
-  if (await checkRecapta(g_recap)) {
+  if (checkRecapta(g_recap)) {
     if (validName(git_name) && validEmail(git_email)) {
       //send mail
       saveDB(git_name, git_email, git_mob, git_msg);
