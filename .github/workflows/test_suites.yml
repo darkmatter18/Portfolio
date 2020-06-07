@@ -4,9 +4,11 @@ on:
   push:
     branches: 
       - development
+      - 'dependabot/*'
   pull_request:
     branches: 
       - master
+      - 'dependabot/*'
 jobs:
   testfront:
    name: Test Frontend
