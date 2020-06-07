@@ -1,0 +1,74 @@
+name: GAE Deploy
+
+on:
+  push:
+    branches: 
+      - master
+jobs:
+  testfront:
+   name: Test Frontend
+   runs-on: ubuntu-latest
+
+   env:
+     client: /client
+
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v2
+
+     - name: Node Setup
+       uses: actions/setup-node@v1
+       with:
+        node-version: 12
+
+     - name: NPM Install
+       run: npm ci
+       working-directory: ${{env.client}}
+
+     - name: Test Frontend
+       run: npm test
+       working-directory: ${{env.client}}
+
+  testback:
+    name: Test Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Node Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: NPM Install
+        run: npm ci
+
+      - name: Test Backend
+        run: npm test
+
+  build:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+    needs: [testfront, testback]
+
+    env:
+     client: /client
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Node Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: NPM Install
+        run: npm ci
+        working-directory: ${{env.client}}
+
+      - name: Build Frontend
+        run: npm build
+        working-directory: ${{env.client}}
