@@ -10,7 +10,7 @@ jobs:
    runs-on: ubuntu-latest
 
    env:
-     client: /client
+     client: ./client
 
    steps:
      - name: Checkout
