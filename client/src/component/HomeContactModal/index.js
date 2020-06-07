@@ -34,7 +34,7 @@ class HomeContactModal extends React.Component {
                                     Fill the form and I will contact you as soon as possible
                                     </Typography>
 
-                                <HomeModalForm />
+                                <HomeModalForm modalkey={this.props.modalkey} />
 
                             </CardContent>
                         </Card>

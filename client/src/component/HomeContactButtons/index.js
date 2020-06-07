@@ -43,7 +43,7 @@ class HomeContactButtons extends React.Component {
                     </Grid>
                 </Grid>
 
-                <HomeContactModal open={open} close={this.OnModalClose} />
+                <HomeContactModal open={open} close={this.OnModalClose} modalkey="git"/>
             </React.Fragment>
         )
     }
