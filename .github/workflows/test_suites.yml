@@ -13,7 +13,7 @@ jobs:
    runs-on: ubuntu-latest
 
    env:
-     client: /client
+     client: ./client
 
    steps:
      - name: Checkout
@@ -52,12 +52,12 @@ jobs:
         run: npm test
 
   build:
-    name: Build Frontend
+    name: Build & Deploy
     runs-on: ubuntu-latest
     needs: [testfront, testback]
 
     env:
-     client: /client
+     client: ./client
 
     steps:
       - name: Checkout
