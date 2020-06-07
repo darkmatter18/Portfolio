@@ -2,7 +2,8 @@
 
 Link to the Website: [**`arkadip.co`**](http://www.arkadip.co)
 
-[![Travis CI](https://travis-ci.com/darkmatter18/arkadip.co.svg?branch=master)](https://travis-ci.com/darkmatter18/arkadip.co)
+![GAE Deploy](https://github.com/darkmatter18/arkadip.co/workflows/GAE%20Deploy/badge.svg)
+![Test Suites](https://github.com/darkmatter18/arkadip.co/workflows/Test%20Suites/badge.svg)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/darkmatter18/arkadip.co.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/darkmatter18/arkadip.co/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/darkmatter18/arkadip.co.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/darkmatter18/arkadip.co/context:javascript)
 
@@ -17,10 +18,10 @@ My own Personal `Portfolio` Website. A perfect example of `MERN Stack`.
 
 ## Dev-ops
 
-- Using `Travis` for *Continous Integration*
-- Testing using `Jest` on `Travis CI`
-- Using `Travis` for *Continous Delivary*
-- Deployed on `Google Cloud App Engine(GAE)` with the help of `Travis CD`
+- Using `Github Actions (Test Suites)` for *Continous Integration*
+- Testing using `Jest` on `Test Suites`
+- Using `Github Actions (GAE Deploy)` for *Continous Delivary*
+- Deployed on `Google Cloud App Engine(GAE)` with the help of `GAE Deploy`
 
 ## Maintainer
 
