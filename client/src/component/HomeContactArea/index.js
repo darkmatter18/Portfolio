@@ -114,7 +114,7 @@ class HomeContactArea extends React.Component {
                     </Container>
                 </div>
 
-                <HomeContactModal open={modalOpen} close={this.onModalClose} />
+                <HomeContactModal open={modalOpen} close={this.onModalClose} modalkey="contact"/>
             </React.Fragment>
         )
     }

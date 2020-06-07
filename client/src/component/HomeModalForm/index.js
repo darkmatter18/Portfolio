@@ -1,103 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextField, Button, Typography, CircularProgress } from '@material-ui/core';
 import api from './../../api';
 
 import { G_RECAPTA_TOKEN } from "./../../constant";
-class HomeModalForm extends React.Component {
-    state = {
-        name: '',
-        email: '',
-        number: '',
-        textmsg: '',
-        submitting: false,
-        submitted: false,
-        submitFailed: false,
-        buttonBackgroundColor: '#00ad45'
-    }
 
-    handleChange = name => e => {
-        e.preventDefault();
-        this.setState({ ...this.state, [name]: e.target.value });
-    }
+const HomeModalForm = ({ modalkey }) => {
+    const [name, setname] = useState('');
+    const [email, setemail] = useState('');
+    const [number, setnumber] = useState('');
+    const [textmsg, settextmsg] = useState('');
+    const [submitting, setsubmitting] = useState(false);
+    const [submitted, setsubmitted] = useState(false);
+    const [submitFailed, setsubmitFailed] = useState(false);
+    const [buttonBackgroundColor, setbuttonBackgroundColor] = useState('#00ad45');
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({ submitting: true, buttonBackgroundColor: '#dbdbdb' });
+        setsubmitting(true);
+        setbuttonBackgroundColor('#dbdbdb');
 
         window.grecaptcha.ready(() => {
             window.grecaptcha.execute(G_RECAPTA_TOKEN, { action: 'login' }).then((token) => {
-                this.submitRequest(token);
+                submitRequest(token);
             });
         });
     }
 
-    submitRequest = async (token) => {
+    const submitRequest = async (token) => {
         await api.post('/email', {
-            git_name: this.state.name,
-            git_email: this.state.email,
-            git_mob: this.state.number,
-            git_msg: this.state.textmsg,
+            git_name: name,
+            git_email: email,
+            git_mob: number,
+            git_msg: textmsg,
             g_recap: token
         }).then((response) => {
             if (response.status === 200) {
                 if (response.data.status === 'Y') {
-                    this.setState({ submitted: true })
+                    setsubmitted(true);
                 }
             }
         }).catch((e) => {
-            this.setState({ submitting: false, buttonBackgroundColor: '#00ad45', submitFailed: true })
+            setsubmitting(false);
+            setbuttonBackgroundColor('#00ad45');
+            setsubmitFailed(true);
         });
     }
 
-    renderForm() {
-        const { name, email, number, textmsg, submitting, buttonBackgroundColor } = this.state
+    const renderForm = () => {
         return (
-            <form style={{ paddingTop: '1rem', paddingBottom: '2rem' }} onSubmit={this.handleSubmit}>
+            <form style={{ paddingTop: '1rem', paddingBottom: '2rem' }} onSubmit={handleSubmit}>
                 <TextField
                     required
                     fullWidth
-                    id="git-name"
+                    id={`${modalkey}-name`}
                     label="Name"
                     margin="normal"
-                    name="git-name"
                     value={name}
-                    onChange={this.handleChange('name')}
+                    onChange={(e) => setname(e.target.value)}
                 />
                 <TextField
                     required
                     fullWidth
                     type="email"
-                    id="git-email"
+                    id={`${modalkey}-email`}
                     label="E-Mail"
                     margin="dense"
-                    name="git-email"
                     value={email}
-                    onChange={this.handleChange('email')}
+                    onChange={(e) => setemail(e.target.value)}
                 />
                 <TextField
                     type="number"
-                    id="git-email"
+                    id={`${modalkey}-mob`}
                     label="Mobile Number"
                     margin="dense"
-                    name="git-mob"
                     value={number}
-                    onChange={this.handleChange('number')}
+                    onChange={(e) => setnumber(e.target.value)}
                 />
                 <TextField
                     fullWidth
                     type="text"
-                    id="git-msg"
+                    id={`${modalkey}-msg`}
                     label="Any Message"
                     multiline
                     rowsMax={4}
                     margin="normal"
                     variant="outlined"
                     value={textmsg}
-                    onChange={this.handleChange('textmsg')}
+                    onChange={(e) => settextmsg(e.target.value)}
                 />
-                {this.state.submitFailed ? (
+                {submitFailed ? (
                     <Typography align="left" variant="body2" style={{ color: '#ff0000', float: 'left' }}>
-                        No backend server added :(
+                        Failed to store your data. <br />
+                        Please, try again later
                     </Typography>
                 ) : (<React.Fragment />)}
 
@@ -111,9 +105,10 @@ class HomeModalForm extends React.Component {
                 </Button>
             </form>
         )
+
     }
 
-    renderSubmitted() {
+    const renderSubmitted = () => {
         return (
             <Typography variant="body2" align="left" style={{ padding: '1rem' }}>
                 Your Request is sumbmitted. <br />
@@ -122,14 +117,17 @@ class HomeModalForm extends React.Component {
         )
     }
 
-    render() {
+    if (submitted) {
         return (
             <React.Fragment>
-                {this.state.submitted ? (
-                    this.renderSubmitted()
-                ) : (
-                        this.renderForm()
-                    )}
+                {renderSubmitted()}
+            </React.Fragment>
+        )
+    }
+    else {
+        return (
+            <React.Fragment>
+                {renderForm()}
             </React.Fragment>
         )
     }
