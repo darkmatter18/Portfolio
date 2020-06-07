@@ -64,6 +64,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+      
+      - name: GAE Setup
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          project_id: ${{ secrets.PROJECT_ID }}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
 
       - name: NPM Install
         run: npm ci
@@ -84,3 +91,8 @@ jobs:
           echo ' mongouser: '${{ secrets.MONGODB_USER }} >> app.yaml
           echo ' mongopass: '${{ secrets.MONGODB_PASS }} >> app.yaml
           cat app.yaml
+      
+      # Deploy App to App Engine
+      - name: Deploy
+        run: |
+          gcloud app deploy --quiet
