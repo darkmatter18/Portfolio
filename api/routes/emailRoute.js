@@ -2,8 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const emailRouter = express.Router();
 
-const emailModel = require('./../models/emailModel');
-const sgMail = require('./../utils/mailConfig');
+const emailModel = require('../models/emailModel');
+const sgMail = require('../utils/mailConfig');
 
 let recapta, MAIL_SENDER, MAIL_REPLYTO;
 if (process.env.NODE_ENV === 'production') {
@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
   MAIL_REPLYTO = process.env.MAIL_REPLYTO;
 }
 else {
-  const config = require('./../devconfig');
+  const config = require('../../devconfig');
   recapta = config.recapta;
   MAIL_SENDER = config.MAIL_SENDER;
   MAIL_REPLYTO = config.MAIL_REPLYTO;
