@@ -1,5 +1,8 @@
 dispatch:
-  - url: "*.arkadip.co/*"
+  - url: "arkadip.co/*"
+    service: default
+
+  - url: "www.arkadip.co/*"
     service: default
 
   - url: "api.arkadip.co/*"
