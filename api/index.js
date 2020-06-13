@@ -60,7 +60,7 @@ mongoose.connect(mongoStr, { useUnifiedTopology: true, useNewUrlParser: true })
 
 
 //IMPORT ROUTES
-app.use(`/api`, emailRoute);
+app.use(`/email`, emailRoute);
 app.use(`/test`, testRoute);
 
 const PORT = process.env.PORT || 8080;

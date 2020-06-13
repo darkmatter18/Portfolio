@@ -18,7 +18,7 @@ else {
   MAIL_REPLYTO = config.MAIL_REPLYTO;
 }
 
-emailRouter.post(`/email`, (req, res) => {
+emailRouter.post(`/`, (req, res) => {
   const git_name = req.body.git_name;
   const git_email = req.body.git_email;
   const git_mob = req.body.git_mob;
