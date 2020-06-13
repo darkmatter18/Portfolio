@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { HOME, PROJECTS } from './routes';
-import Home from './../pages/Home';
-import Projects from './../pages/Projects';
-import Page404 from './../pages/404';
+import Home from '../pages/Home';
+import Projects from '../pages/Projects';
+import Page404 from '../pages/404';
 
 
 

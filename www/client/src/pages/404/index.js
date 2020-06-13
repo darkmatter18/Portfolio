@@ -84,7 +84,7 @@ class Page404 extends React.Component {
                             <div className="clip">
                                 <div className="shadow"><span className="digit firstDigit">{digit1}</span></div>
                             </div>
-                            <div className="msg">OH!<span className="triangle"></span></div>
+                            <div className="msg">OH!<span className="triangle"/></div>
                         </div>
                         <h2 className="h1">Sorry! Page not found</h2>
                         <Button variant="outlined" size="large" onClick={this.onBackButtonClick}>

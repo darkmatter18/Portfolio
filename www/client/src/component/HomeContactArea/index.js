@@ -3,7 +3,7 @@ import { Grid, Typography, Container, Button } from '@material-ui/core';
 import HomeContactModal from '../HomeContactModal';
 import VersionInfo from '../VersionInfo';
 
-import { EMAIL_ID } from "./../../constant";
+import { EMAIL_ID } from "../../constant";
 
 class HomeContactArea extends React.Component {
 

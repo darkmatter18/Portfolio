@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, Button, Typography, CircularProgress } from '@material-ui/core';
-import api from './../../api';
+import api from '../../api';
 
-import { G_RECAPTA_TOKEN } from "./../../constant";
+import { G_RECAPTA_TOKEN } from "../../constant";
 
 const HomeModalForm = ({ modalkey }) => {
     const [name, setname] = useState('');

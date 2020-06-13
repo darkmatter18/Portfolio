@@ -3,7 +3,7 @@ import { Grid, Button } from '@material-ui/core';
 import ArrowDownwardRounded from '@material-ui/icons/ArrowDownwardRounded';
 
 import HomeContactModal from '../HomeContactModal';
-import { RESUME_LINK } from "./../../constant";
+import { RESUME_LINK } from "../../constant";
 
 class HomeContactButtons extends React.Component {
     state = { open: false }
