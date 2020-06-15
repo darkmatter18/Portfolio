@@ -1,7 +1,7 @@
 {
   "name": "arkadip.co",
   "version": "1.0.0",
-  "description": "",
+  "description": "API interfaces for arkadip.co",
   "main": "index.js",
   "scripts": {
     "devserver": "nodemon index.js",
@@ -10,7 +10,7 @@
     "dev": "concurrently --kill-others-on-fail \"npm run devserver\" \"npm run devclient\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Arkadip",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.2.0",
