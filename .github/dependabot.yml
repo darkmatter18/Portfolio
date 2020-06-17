@@ -1,0 +1,37 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/admin/client"
+  schedule:
+    interval: daily
+    time: '23:30'
+    timezone: Asia/Calcutta
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/api"
+  schedule:
+    interval: daily
+    time: '23:30'
+    timezone: Asia/Calcutta
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/www/client"
+  schedule:
+    interval: daily
+    time: '23:30'
+    timezone: Asia/Calcutta
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/www"
+  schedule:
+    interval: daily
+    time: '23:30'
+    timezone: Asia/Calcutta
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/admin"
+  schedule:
+    interval: daily
+    time: '23:30'
+    timezone: Asia/Calcutta
+  open-pull-requests-limit: 10
