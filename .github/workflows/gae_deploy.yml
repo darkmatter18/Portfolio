@@ -38,25 +38,6 @@ jobs:
        run: npm test
        working-directory: ${{env.admin}}
 
-#   testback:
-#     name: Test Backend
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-
-#       - name: Node Setup
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: 12
-
-#       - name: NPM Install
-#         run: npm ci
-
-#       - name: Test Backend
-#         run: npm test
-
   build:
     name: Build & Deploy
     runs-on: ubuntu-latest
@@ -99,7 +80,7 @@ jobs:
         working-directory: ${{env.admin}}
       
       - name: ENV vars
-        run: env.sh
+        run: ./env.sh
         working-directory: ./api
       
       # Deploy App to App Engine
