@@ -11,6 +11,7 @@ jobs:
 
    env:
      client: ./www/client
+     admin: ./admin/client
 
    steps:
      - name: Checkout
@@ -21,13 +22,21 @@ jobs:
        with:
         node-version: 12
 
-     - name: NPM Install
+     - name: NPM Install WWW
        run: npm ci
        working-directory: ${{env.client}}
 
-     - name: Test Frontend
+     - name: Test WWW
        run: npm test
        working-directory: ${{env.client}}
+     
+     - name: NPM Install admin
+       run: npm ci
+       working-directory: ${{env.admin}}
+
+     - name: Test admin
+       run: npm test
+       working-directory: ${{env.admin}}
 
 #   testback:
 #     name: Test Backend
@@ -55,6 +64,7 @@ jobs:
 
     env:
      client: ./www/client
+     admin: ./admin/client
 
     steps:
       - name: Checkout
@@ -72,13 +82,21 @@ jobs:
           project_id: ${{ secrets.PROJECT_ID }}
           service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
 
-      - name: NPM Install
+      - name: NPM Install WWW
         run: npm ci
         working-directory: ${{env.client}}
 
-      - name: Build Frontend
+      - name: Build WWW
         run: npm run build
         working-directory: ${{env.client}}
+      
+      - name: NPM Install admin
+        run: npm ci
+        working-directory: ${{env.admin}}
+
+      - name: Build admin
+        run: npm run build
+        working-directory: ${{env.admin}}
       
 #       - name: ENV vars
 #         run: |
@@ -95,4 +113,4 @@ jobs:
       # Deploy App to App Engine
       - name: Deploy
         run: |
-          gcloud app deploy www/app.yaml api/app.yaml dispatch.yaml --quiet
+          gcloud app deploy www/app.yaml api/app.yaml admin/app.yaml dispatch.yaml --quiet
