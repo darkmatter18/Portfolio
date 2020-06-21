@@ -7,3 +7,6 @@ dispatch:
 
   - url: "api.arkadip.co/*"
     service: api
+
+  - url: "admin.arkadip.co/*"
+    service: admin
