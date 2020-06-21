@@ -28,7 +28,7 @@ const app = express()
 app.set('trust proxy', true)
 
 app.use(cors({
-  origin: ['https://www.arkadip.co', 'https://arkadip.co'],
+  origin: ['https://www.arkadip.co', 'https://arkadip.co', 'https://admin.arkadip.co'],
   optionsSuccessStatus: 200
 }));
 
