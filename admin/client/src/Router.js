@@ -4,7 +4,6 @@ import {DASHBOARD, HOME, LOGIN} from "./routes";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import {PrivateRoute} from "./JWT";
 
 const Router = () => {
     return (
@@ -12,7 +11,7 @@ const Router = () => {
             <BrowserRouter>
                 <Route path={HOME} component={Home} exact/>
                 <Route path={LOGIN} component={Login} exact/>
-                <PrivateRoute path={DASHBOARD} component={Dashboard} loginPath={LOGIN} exact />
+                <Route path={DASHBOARD} component={Dashboard} loginPath={LOGIN} exact />
             </BrowserRouter>
         </React.Fragment>
     )

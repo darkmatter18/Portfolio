@@ -1,11 +1,10 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
 import {DASHBOARD, LOGIN} from "../routes";
-import {isAuth} from "../JWT";
 
 const Home = () => {
     const history = useHistory();
-    const is_login = isAuth().auth;
+    const is_login = false;
     if (is_login) {
         history.push(DASHBOARD);
     } else {
