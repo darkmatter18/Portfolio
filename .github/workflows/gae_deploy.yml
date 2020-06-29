@@ -82,7 +82,7 @@ jobs:
       - name: ENV vars
         run: |
           echo '
-            recapta: '${{ secrets.RECAPTA_PRIVATE_KEY }} >> app.yaml
+           recapta: '${{ secrets.RECAPTA_PRIVATE_KEY }} >> app.yaml
           echo ' MAIL_SENDER: '${{ secrets.MAIL_SENDER }} >> app.yaml
           echo ' MAIL_REPLYTO: '${{ secrets.MAIL_REPLYTO }} >> app.yaml
           echo ' SENDGRID_API: '${{ secrets.SENDGRID_API }} >> app.yaml
