@@ -8,7 +8,7 @@ on:
   pull_request:
     branches: 
       - master
-      - 'dependabot/*'
+      - development
 jobs:
   testfront:
    name: Test Frontend
