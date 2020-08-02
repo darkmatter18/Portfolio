@@ -1,7 +1,6 @@
 import React from 'react';
 import Router from "./Router";
-import {AuthProvider} from "./JWT";
-
+import {AuthProvider} from 'jwt-auth-react'
 
 const App = () => {
 

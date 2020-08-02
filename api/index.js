@@ -14,20 +14,21 @@
  limitations under the License.
  */
 
-const cors = require('cors');
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const rateLimit = require("express-rate-limit");
+const cors = require('cors')
+const express = require('express')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const rateLimit = require("express-rate-limit")
 
-const testRoute = require('./routes/testRoute');
-const emailRoute = require('./routes/emailRoute');
+const testRoute = require('./routes/testRoute')
+const emailRoute = require('./routes/emailRoute')
+const authRoute = require('./routes/authRoute')
 
-const app = express();
-app.set('trust proxy', true);
+const app = express()
+app.set('trust proxy', true)
 
 app.use(cors({
-  origin: ['https://www.arkadip.co', 'https://arkadip.co'],
+  origin: ['https://www.arkadip.co', 'https://arkadip.co', 'https://admin.arkadip.co'],
   optionsSuccessStatus: 200
 }));
 
@@ -60,8 +61,9 @@ mongoose.connect(mongoStr, { useUnifiedTopology: true, useNewUrlParser: true })
 
 
 //IMPORT ROUTES
-app.use(`/email`, emailRoute);
-app.use(`/test`, testRoute);
+app.use(`/email`, emailRoute)
+app.use(`/i`, authRoute)
+app.use(`/test`, testRoute)
 
 const PORT = process.env.PORT || 8080;
 

@@ -1,48 +1,100 @@
 import React from 'react';
+import {makeStyles} from "@material-ui/core/styles";
 
-class HomeSocialButton extends React.Component {
-    state = { color: '#ffffff', shadow: '0', c: 'context-menu' };
-    //{color: '#00ad45', textShadow: '0px 0px 10px #00ad45'}
+import {ReactComponent as ChevronDown} from './chevrondown.svg';
+import {ReactComponent as Facebook} from './facebook.svg';
+import {ReactComponent as Linkedin} from './linkedin.svg';
+import {ReactComponent as Github} from './github.svg';
+import {ReactComponent as Instagram} from './instagram.svg';
+import {ReactComponent as Twitter} from './twitter.svg';
 
-    mouseOver() {
-        this.setState({ color: '#00ad45', shadow: '0px 0px 10px #00ad45', c: 'pointer' })
+
+const useThemes = makeStyles(() => ({
+    svg: {
+        textAlign: 'center',
+        height: '2em',
+        width: '2em',
+        display: 'block',
+        margin: 'auto'
     }
+}));
 
-    mouseOut() {
-        this.setState({ color: '#ffffff', shadow: '0 0 0', c: 'context-menu' });
-    }
+const HomeSocialButton = ({iName, link}) => {
+    const classes = useThemes();
 
-    onClickHandler = (e) => {
-        const { link } = this.props;
+    const [style, setStyle] = React.useState({color: '#ffffff', textShadow: '0 0 0', cursor: 'context-menu'})
+
+    const Logo = () => {
+        switch (iName) {
+            case 'Facebook':
+                return (
+                    <React.Fragment>
+                        <Facebook className={classes.svg}/>
+                    </React.Fragment>
+                )
+            case 'Linkedin':
+                return (
+                    <React.Fragment>
+                        <Linkedin className={classes.svg}/>
+                    </React.Fragment>
+                )
+            case 'Github':
+                return (
+                    <React.Fragment>
+                        <Github className={classes.svg}/>
+                    </React.Fragment>
+                )
+            case 'Instagram':
+                return (
+                    <React.Fragment>
+                        <Instagram className={classes.svg}/>
+                    </React.Fragment>
+                )
+            case 'Twitter':
+                return (
+                    <React.Fragment>
+                        <Twitter className={classes.svg}/>
+                    </React.Fragment>
+                )
+            case 'ChevronDown':
+                return (
+                    <React.Fragment>
+                        <ChevronDown className={classes.svg}/>
+                    </React.Fragment>
+                )
+            default:
+                return <React.Fragment/>
+        }
+    };
+
+    const onClickHandler = (e) => {
         e.preventDefault();
 
-        if(link) {
-            console.log('Opening Link:  '+ link);
-            if(link.startsWith('#')){
+        if (link) {
+            console.log('Opening Link:  ' + link);
+            if (link.startsWith('#')) {
                 window.location = link
             }
-            if(link.startsWith('http')){
+            if (link.startsWith('http')) {
                 window.open(link);
             }
-        }
-        else {
+        } else {
             console.log('NO LINK PRESENT');
         }
     }
 
-    render() {
-
-        const { color, shadow, c } = this.state
-        const s = { color: color, textShadow: shadow, cursor: c }
-        const { iName } = this.props
-        const iconV = `${iName} fa-2x`;
-
-        return (
-            <React.Fragment>
-                <i className={iconV} style={s} onMouseEnter={() => this.mouseOver()} onMouseLeave={() => this.mouseOut()} onClick={this.onClickHandler}></i>
-            </React.Fragment>
-        )
-    }
+    return (
+        <div className={classes.icon} style={style}
+           onMouseEnter={() => {
+               setStyle({color: '#00ad45', textShadow: '0px 0px 20px #00ad45', cursor: 'pointer'})
+           }}
+           onMouseLeave={() => {
+               setStyle({color: '#ffffff', textShadow: '0 0 0', cursor: 'context-menu'})
+           }}
+           onClick={onClickHandler}>
+            {Logo()}
+        </div>
+    )
 }
 
 export default HomeSocialButton;
