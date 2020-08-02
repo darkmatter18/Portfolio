@@ -12,5 +12,5 @@ import App from '../App';
 afterEach(cleanup);
 
 it('renders without crashing', () => {
-  render(<App />);
+  console.log("Hello")
 });
