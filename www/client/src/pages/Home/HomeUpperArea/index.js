@@ -18,7 +18,7 @@ import React from 'react';
 import {Grid, Typography} from '@material-ui/core';
 
 import HomeSocialButton from '../HomeSocialButton';
-import {LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, TWITTER_LINK} from "../../constant";
+import {LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, TWITTER_LINK} from "../../../constant";
 import HomeParticleComponent from '../HomeParticleComponent';
 import {makeStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -27,8 +27,7 @@ import clsx from "clsx";
 const useStyles = makeStyles((theme) => ({
     background: {
         backgroundColor: theme.palette.common.black,
-        height: window.innerHeight,
-        width: window.innerWidth
+        minHeight: '100vh',
     },
     headingFont: {
         fontFamily: 'poppins-bold, sans-serif',

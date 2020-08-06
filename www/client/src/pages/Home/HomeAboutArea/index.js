@@ -1,9 +1,9 @@
 import React from "react";
 import {Grid, Typography} from "@material-ui/core";
 
-import logo from "../../images/logo.jpeg";
+import logo from "../../../images/logo.jpeg";
 import HomeContactButtons from "../HomeContactButtons";
-import {WEBSITE_LINK, EMAIL_ID} from "../../constant";
+import {WEBSITE_LINK, EMAIL_ID} from "../../../constant";
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyle = makeStyles((theme) => ({
