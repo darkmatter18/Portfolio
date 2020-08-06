@@ -7,8 +7,7 @@ const style = (theme) => ({
     main: {
         zIndex: 0,
         position: 'absolute',
-        height: window.innerHeight - 20,
-        width: window.innerWidth - 20
+        minHeight: '100vh',
     },
 });
 

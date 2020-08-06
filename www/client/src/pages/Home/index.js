@@ -16,10 +16,10 @@
 
 import React from 'react';
 
-import HomeUpperArea from '../../component/HomeUpperArea';
-import HomeAboutArea from '../../component/HomeAboutArea';
-import HomeEducationArea from '../../component/HomeEducationArea';
-import HomeContactArea from '../../component/HomeContactArea';
+import HomeUpperArea from './HomeUpperArea';
+import HomeAboutArea from './HomeAboutArea';
+import HomeEducationArea from './HomeEducationArea';
+import HomeContactArea from './HomeContactArea';
 
 class Home extends React.Component {
     render() {

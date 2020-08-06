@@ -1,8 +1,8 @@
 import React from 'react';
 import {Grid, Typography, Container, Button} from '@material-ui/core';
 
-import VersionInfo from '../VersionInfo';
-import {EMAIL_ID} from "../../constant";
+import VersionInfo from '../../../component/VersionInfo';
+import {EMAIL_ID} from "../../../constant";
 import HomeContactModal from '../HomeContactModal';
 
 import {ReactComponent as Envelope} from './envelope.svg';
