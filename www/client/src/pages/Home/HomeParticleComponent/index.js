@@ -115,7 +115,7 @@ class HomeParticleComponent extends React.Component {
         return (
             <React.Fragment>
                 <div className={this.props.classes.main}>
-                    <Particles params={particleConfig} height={window.innerHeight - 20} width={window.innerWidth - 20} />
+                    <Particles params={particleConfig}/>
                 </div>
             </React.Fragment>
         )
