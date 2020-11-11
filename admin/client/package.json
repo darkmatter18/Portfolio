@@ -7,7 +7,7 @@
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
-    "@testing-library/user-event": "^12.1.7",
+    "@testing-library/user-event": "^12.2.2",
     "axios": "^0.20.0",
     "js-cookie": "^2.2.1",
     "jwt-auth-react": "^4.1.2",
