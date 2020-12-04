@@ -15,7 +15,7 @@ jobs:
    runs-on: ubuntu-latest
 
    env:
-     client: ./www/client
+     client: ./www
 
    steps:
      - name: Checkout
@@ -40,7 +40,7 @@ jobs:
     needs: [testfront]
 
     env:
-     client: ./www/client
+     client: ./www
 
     steps:
       - name: Checkout

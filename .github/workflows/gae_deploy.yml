@@ -10,7 +10,7 @@ jobs:
    runs-on: ubuntu-latest
 
    env:
-     client: ./www/client
+     client: ./www
      admin: ./admin/client
 
    steps:
@@ -30,13 +30,13 @@ jobs:
        run: npm test
        working-directory: ${{env.client}}
      
-     - name: NPM Install admin
-       run: npm ci
-       working-directory: ${{env.admin}}
-
-     - name: Test admin
-       run: npm test
-       working-directory: ${{env.admin}}
+#     - name: NPM Install admin
+#       run: npm ci
+#       working-directory: ${{env.admin}}
+#
+#     - name: Test admin
+#       run: npm test
+#       working-directory: ${{env.admin}}
 
   build:
     name: Build & Deploy
@@ -44,7 +44,7 @@ jobs:
     needs: [testfront]
 
     env:
-     client: ./www/client
+     client: ./www
      admin: ./admin/client
 
     steps:
@@ -71,29 +71,30 @@ jobs:
         run: npm run build
         working-directory: ${{env.client}}
       
-      - name: NPM Install admin
-        run: npm ci
-        working-directory: ${{env.admin}}
-
-      - name: Build admin
-        run: npm run build
-        working-directory: ${{env.admin}}
+#      - name: NPM Install admin
+#        run: npm ci
+#        working-directory: ${{env.admin}}
+#
+#      - name: Build admin
+#        run: npm run build
+#        working-directory: ${{env.admin}}
       
-      - name: ENV vars
-        run: |
-          echo '
-           recapta: '${{ secrets.RECAPTA_PRIVATE_KEY }} >> app.yaml
-          echo ' MAIL_SENDER: '${{ secrets.MAIL_SENDER }} >> app.yaml
-          echo ' MAIL_REPLYTO: '${{ secrets.MAIL_REPLYTO }} >> app.yaml
-          echo ' SENDGRID_API: '${{ secrets.SENDGRID_API }} >> app.yaml
-          echo ' mongoConnect: '${{ secrets.MONGODB_CONNECT }} >> app.yaml
-          echo ' mongouser: '${{ secrets.MONGODB_USER }} >> app.yaml
-          echo ' mongopass: '${{ secrets.MONGODB_PASS }} >> app.yaml
-          echo ' serect: '${{ secrets.JWT_SERECT }} >> app.yaml
-          cat app.yaml
-        working-directory: ./api
+#      - name: ENV vars
+#        run: |
+#          echo '
+#           recapta: '${{ secrets.RECAPTA_PRIVATE_KEY }} >> app.yaml
+#          echo ' MAIL_SENDER: '${{ secrets.MAIL_SENDER }} >> app.yaml
+#          echo ' MAIL_REPLYTO: '${{ secrets.MAIL_REPLYTO }} >> app.yaml
+#          echo ' SENDGRID_API: '${{ secrets.SENDGRID_API }} >> app.yaml
+#          echo ' mongoConnect: '${{ secrets.MONGODB_CONNECT }} >> app.yaml
+#          echo ' mongouser: '${{ secrets.MONGODB_USER }} >> app.yaml
+#          echo ' mongopass: '${{ secrets.MONGODB_PASS }} >> app.yaml
+#          echo ' serect: '${{ secrets.JWT_SERECT }} >> app.yaml
+#          cat app.yaml
+#        working-directory: ./api
       
       # Deploy App to App Engine
       - name: Deploy
         run: |
-          gcloud app deploy www/app.yaml api/app.yaml admin/app.yaml dispatch.yaml --quiet
+          gcloud app deploy www/app.yaml dispatch.yaml --quiet
+#          gcloud app deploy www/app.yaml api/app.yaml admin/app.yaml dispatch.yaml --quiet
