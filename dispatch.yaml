@@ -1,12 +1,6 @@
 dispatch:
-  - url: "arkadip.co/*"
+  - url: "arkadip.me/*"
     service: default
 
-  - url: "www.arkadip.co/*"
+  - url: "www.arkadip.me/*"
     service: default
-
-  - url: "api.arkadip.co/*"
-    service: api
-
-  - url: "admin.arkadip.co/*"
-    service: admin
