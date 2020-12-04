@@ -1,7 +1,15 @@
-runtime: nodejs12
 service: default
+runtime: nodejs12
 handlers:
-  - url: /.*
-    script: auto
+  # Serve all static files with url ending with a file extension
+  - url: /(.*\..+)$
+    static_files: build/\1
     secure: always
     redirect_http_response_code: 301
+    upload: build/(.*\..+)$
+  # Catch all handler to index.html
+  - url: /.*
+    static_files: build/index.html
+    secure: always
+    redirect_http_response_code: 301
+    upload: build/index.html
