@@ -10,7 +10,7 @@ class VersionInfo extends React.Component {
         const v = packageJson.version
         return (
             <React.Fragment>
-                {`Under Constraction | Beta ${v}`}
+                {`V. ${v}`}
             </React.Fragment>
         )
     }
