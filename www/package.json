@@ -14,7 +14,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-tsparticles": "^1.26.4",
-    "react-vertical-timeline-component": "^3.3.3"
+    "react-vertical-timeline-component": "^3.3.3",
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
