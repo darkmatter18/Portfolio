@@ -15,7 +15,7 @@
     "react-scripts": "4.0.3",
     "react-tsparticles": "^1.26.4",
     "react-vertical-timeline-component": "^3.3.3",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
