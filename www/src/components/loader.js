@@ -1,41 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import anime from "animejs";
-import LoaderIcon from "../icons/loader";
+import LoaderIcon from "../icons/LoaderIcon";
 import clsx from "clsx";
-
-// const StyledLoader = styled.div`
-//   position: fixed;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: var(--dark-navy);
-//   z-index: 99;
-//   .logo-wrapper {
-//     color: black
-//     width: max-content;
-//     max-width: 200px;
-//     transition: var(--transition);
-//     opacity: ${props => (props.isMounted ? 1 : 0)};
-//     svg {
-//       display: block;
-//       width: 100%;
-//       height: 100%;
-//       margin: 0 auto;
-//       fill: none;
-//       user-select: none;
-//       #A {
-//         opacity: 0;
-//       }
-//       #B {
-//         opacity: 0;
-//       }
-//     }
-//   }
-// `;
 
 const Loader = ({finishLoading}) => {
   const animate = () => {
@@ -85,7 +52,7 @@ const Loader = ({finishLoading}) => {
     <>
       <div className={
         clsx("container", isMounted ? "opacity-100" : "opacity-0", "min-h-screen",
-          "flex", "justify-center", "items-center")}>
+          "flex", "justify-center", "items-center", "bg-gradient-to-br from-green-400 to-pink-500")}>
         <LoaderIcon/>
 
       </div>
