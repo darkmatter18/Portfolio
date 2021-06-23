@@ -8,7 +8,14 @@ updates:
     timezone: Asia/Calcutta
   open-pull-requests-limit: 10
 - package-ecosystem: npm
-  directory: "/www"
+  directory: "/v1"
+  schedule:
+    interval: daily
+    time: '23:30'
+    timezone: Asia/Calcutta
+  open-pull-requests-limit: 10
+  - package-ecosystem: npm
+  directory: "/v2"
   schedule:
     interval: daily
     time: '23:30'
