@@ -53,7 +53,9 @@ const Loader = ({finishLoading}) => {
       <div className={
         clsx("container", isMounted ? "opacity-100" : "opacity-0", "min-h-screen",
           "flex", "justify-center", "items-center", "bg-gradient-to-br from-green-400 to-pink-500")}>
-        <LoaderIcon/>
+        <div className={"w-20"}>
+          <LoaderIcon isOnLoader={true}/>
+        </div>
 
       </div>
     </>
