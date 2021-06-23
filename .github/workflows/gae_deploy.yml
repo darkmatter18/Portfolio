@@ -44,5 +44,5 @@ jobs:
       # Deploy App to App Engine
       - name: Deploy
         run: |
-          gcloud app deploy www/app.yaml dispatch.yaml --quiet
+          gcloud app deploy v1/app.yaml dispatch.yaml --quiet
 #          gcloud app deploy www/app.yaml api/app.yaml admin/app.yaml dispatch.yaml --quiet
