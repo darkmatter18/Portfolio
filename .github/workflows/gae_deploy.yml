@@ -1,13 +1,14 @@
 name: GAE Deploy
 
 on:
-  push
+  push:
+    branches:
+      - master
 
 jobs:
   test_build:
     name: Build & Deploy
     runs-on: ubuntu-latest
-    needs: [ testfront ]
 
     env:
       client: ./v1
