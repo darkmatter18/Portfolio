@@ -1,8 +1,10 @@
 import React from "react";
+import clsx from "clsx";
+import PropTypes from "prop-types";
 
-const LoaderIcon = () => (
-  <svg id="logo" width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g id="A" className={"opacity-0"}>
+const LoaderIcon = ({isOnLoader}) => (
+  <svg id="logo" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="A" className={clsx(isOnLoader ? "opacity-0" : "opacity-100")}>
       <path
         d="M94.0501 96L88.6501 83.904H62.0101L56.5381 96H48.4741L71.2261 45.6H79.9381L102.546 96H94.0501ZM71.4421 63.168L65.3941 76.416H85.2661L79.0741 62.88C78.4501 61.344 77.8261 59.832 77.2021 58.344C76.5781 56.856 75.9541 55.272 75.3301 53.592C74.6581 55.32 74.0101 56.976 73.3861 58.56C72.7621 60.096 72.1141 61.632 71.4421 63.168Z"
         className={"fill-purple"}/>
@@ -12,6 +14,10 @@ const LoaderIcon = () => (
       className={"stroke-current text-purple-600"} strokeWidth="10"/>
   </svg>
 )
+
+LoaderIcon.propTypes = {
+  isOnLoader: PropTypes.bool.isRequired
+}
 
 
 export default LoaderIcon
