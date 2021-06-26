@@ -19,9 +19,21 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`],
+      },
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",
+        name: `Arkadip`,
+        short_name: `Arkadip`,
+        start_url: `/`,
+        background_color: `#111935`,
+        theme_color: `#13CA91`,
+        display: `standalone`
       },
     },
     "gatsby-transformer-remark",
