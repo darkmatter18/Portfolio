@@ -46,13 +46,14 @@ const Loader = ({finishLoading}) => {
     const timeout = setTimeout(() => setIsMounted(true), 10);
     animate();
     return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <div className={
         clsx("container", isMounted ? "opacity-100" : "opacity-0", "min-h-screen",
-          "flex", "justify-center", "items-center", "bg-gradient-to-br from-green-400 to-pink-500")}>
+          "flex", "justify-center", "items-center", "bg-deep-blue")}>
         <div className={"w-20"}>
           <LoaderIcon isOnLoader={true}/>
         </div>
