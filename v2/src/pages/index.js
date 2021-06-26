@@ -9,7 +9,7 @@ const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
       <Seo title={"Home"}/>
-      <div className={"bg-gradient-to-br from-green-400 to-pink-500 min-h-screen"}>
+      <div className={"bg-deep-blue min-h-screen"}>
         <Navbar/>
       </div>
     </Layout>
