@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate: "%s | Arkadip",
     description: `A Computer science and Engineering student, Deep Learning and Computer Vision 
     engineer and a web developer`,
-    url: 'https://v2.arkadip.me',
+    siteUrl: 'https://v2.arkadip.me',
     image: '/images/icon.png',
     author: `@darkmatter18`,
     twitterUsername: "@arkadipb21",
