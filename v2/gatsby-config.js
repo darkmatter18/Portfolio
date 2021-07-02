@@ -1,10 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: `Arkadip`,
-    description: `Arkadip Bhattacharya is a Computer science and Engineering student, Deep Learning and Computer Vision 
+    titleTemplate: "%s | Arkadip",
+    description: `A Computer science and Engineering student, Deep Learning and Computer Vision 
     engineer and a web developer`,
-    siteUrl: 'https://www.arkadip.me',
+    siteUrl: 'https://v2.arkadip.me',
+    image: '/images/icon.png',
     author: `@darkmatter18`,
+    twitterUsername: "@arkadipb21",
   },
   plugins: [
     "gatsby-plugin-postcss",
