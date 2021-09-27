@@ -9,7 +9,7 @@ class App extends React.Component {
     //SetAdsense
     let script = document.createElement('script');
     script.setAttribute('data-ad-client', 'ca-pub-4077277774959103');
-    script.setAttribute('async');
+    script.setAttribute('async', "");
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
     document.getElementsByTagName('head')[0].appendChild(script);
   }
