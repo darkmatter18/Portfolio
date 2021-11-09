@@ -42,7 +42,7 @@
   "devDependencies": {
     "autoprefixer": "^10.2.6",
     "gatsby-plugin-postcss": "^4.14.0",
-    "postcss": "^8.3.2",
+    "postcss": "^8.3.11",
     "prop-types": "^15.7.2",
     "tailwindcss": "^2.1.4"
   }
