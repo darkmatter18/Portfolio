@@ -32,7 +32,7 @@
     "gatsby-plugin-sitemap": "^4.3.1",
     "gatsby-source-filesystem": "^3.7.1",
     "gatsby-transformer-remark": "^4.4.1",
-    "gatsby-transformer-sharp": "^3.7.1",
+    "gatsby-transformer-sharp": "^3.14.0",
     "netlify-cms-app": "^2.15.19",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
