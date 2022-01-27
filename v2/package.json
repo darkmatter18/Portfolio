@@ -44,6 +44,6 @@
     "gatsby-plugin-postcss": "^4.14.0",
     "postcss": "^8.3.2",
     "prop-types": "^15.7.2",
-    "tailwindcss": "^2.1.4"
+    "tailwindcss": "^3.0.17"
   }
 }
