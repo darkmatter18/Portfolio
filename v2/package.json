@@ -33,7 +33,7 @@
     "gatsby-source-filesystem": "^3.7.1",
     "gatsby-transformer-remark": "^4.4.1",
     "gatsby-transformer-sharp": "^3.14.0",
-    "netlify-cms-app": "^2.15.58",
+    "netlify-cms-app": "^2.15.70",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
