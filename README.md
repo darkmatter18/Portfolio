@@ -2,10 +2,8 @@
 
 ### Link to the Website:
 
-- v2 - [**v2.arkadip.me**](https://v2.arkadip.me) - Build with `React` and `Material Ui`
 - v1 - [**www.arkadip.me**](https://www.arkadip.me) - Build with `Gatsby` with `Tailwind Css`
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ba6bf086-6348-4a1d-aa53-dba1dd8a6fc6/deploy-status)](https://app.netlify.com/sites/goofy-heisenberg-19b5a6/deploys)
 ![GAE Deploy](https://github.com/darkmatter18/arkadip.co/workflows/GAE%20Deploy/badge.svg)
 ![Test Suites](https://github.com/darkmatter18/arkadip.co/workflows/Test%20Suites/badge.svg)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/darkmatter18/arkadip.co.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/darkmatter18/arkadip.co/alerts/)
