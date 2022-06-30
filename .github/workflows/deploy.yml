@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      dir: ./v1
+      dir: ./web
 
     steps:
       - name: Checkout
@@ -73,4 +73,4 @@ jobs:
       # Deploy App to App Engine
       - name: Deploy
         run: |
-          gcloud app deploy v1/app.yaml dispatch.yaml --quiet
+          gcloud app deploy web/app.yaml dispatch.yaml --quiet
