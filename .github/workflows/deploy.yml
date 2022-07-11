@@ -6,8 +6,8 @@ on:
       - master
 
 jobs:
-  check_change_in_v1:
-    name: Check changes in V1
+  check_change_in_web:
+    name: Check changes in WEB
     outputs:
       run_job: ${{ steps.check_files.outputs.run_job }}
     runs-on: ubuntu-latest
@@ -28,8 +28,8 @@ jobs:
           while IFS= read -r file
           do
             echo $file
-            if [[ $file != v1/* ]]; then
-              echo "This modified file is not under the 'v1' folder."
+            if [[ $file != web/* ]]; then
+              echo "This modified file is not under the 'web' folder."
               echo "::set-output name=run_job::false"
               break
             else
@@ -39,7 +39,7 @@ jobs:
   build:
     name: V1 Build & Deploy
 
-    needs: check_change_in_v1
+    needs: check_change_in_web
     if: needs.check.outputs.run_job == 'true'
 
     runs-on: ubuntu-latest
