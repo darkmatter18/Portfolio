@@ -5,6 +5,8 @@ on:
     branches: 
       - development
       - 'dependabot/*'
+      - renovate
+      - 'renovate/*'
   pull_request:
     branches: 
       - master
@@ -14,7 +16,7 @@ jobs:
    runs-on: ubuntu-latest
 
    env:
-     client: ./v1
+     client: ./web
 
    steps:
      - name: Checkout
