@@ -24,7 +24,7 @@
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
-    "concurrently": "^6.3.0",
+    "concurrently": "6.5.1",
     "nodemon": "^2.0.15"
   }
 }
