@@ -2,7 +2,7 @@
   "name": "client",
   "version": "2.2.0",
   "dependencies": {
-    "@material-ui/core": "4.12.4",
+    "@mui/material": "5.0.0",
     "@material-ui/icons": "4.11.3",
     "@testing-library/jest-dom": "6.4.2",
     "@testing-library/react": "14.1.2",
