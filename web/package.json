@@ -4,9 +4,9 @@
   "dependencies": {
     "@mui/material": "5.15.15",
     "@material-ui/icons": "4.11.3",
-    "@testing-library/jest-dom": "6.4.2",
-    "@testing-library/react": "14.1.2",
-    "@testing-library/user-event": "14.5.1",
+    "@testing-library/jest-dom": "5.17.0",
+    "@testing-library/react": "14.3.1",
+    "@testing-library/user-event": "14.5.2",
     "axios": "1.6.5",
     "clsx": "2.1.0",
     "react": "18.2.0",
